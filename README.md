@@ -29,4 +29,4 @@
 
 ## 画面遷移図
 （画像をクリックするとFigmaへ遷移します）
-[![Image from Gyazo](https://i.gyazo.com/44b063bcd6728c634df70bac23ef40e4.png)](https://www.figma.com/file/gmouuUa3BQDQIqeh8NRowV/%E3%83%90%E3%83%81%E3%82%A7%E3%83%A9%E3%83%BC%E3%83%80%E3%83%BC%E3%83%93%E3%83%BC4?node-id=0%3A1)
+[![Image from Gyazo](https://i.gyazo.com/3d687a87dd09d37734f769648ea4fcb2.png)](https://www.figma.com/file/gmouuUa3BQDQIqeh8NRowV/%E3%83%90%E3%83%81%E3%82%A7%E3%83%A9%E3%83%BC%E3%83%80%E3%83%BC%E3%83%93%E3%83%BC4?node-id=0%3A1)
