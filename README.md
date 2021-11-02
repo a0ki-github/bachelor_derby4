@@ -33,4 +33,4 @@
 
 ## ER図
 （画像をクリックするとGoogleDriveへ遷移します）
-[![Image from Gyazo](https://i.gyazo.com/d6395652606778ef60d89164dcfd3f79.png)](https://drive.google.com/file/d/1-CTAXc4nQxtcXVW81UpkotjkiVykD2OA/view?usp=sharing)
+[![Image from Gyazo](https://i.gyazo.com/3d71cd66578d4331d90fea18f904509e.png)](https://drive.google.com/file/d/1-CTAXc4nQxtcXVW81UpkotjkiVykD2OA/view?usp=sharing)
