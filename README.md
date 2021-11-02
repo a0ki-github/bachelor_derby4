@@ -30,3 +30,7 @@
 ## 画面遷移図
 （画像をクリックするとFigmaへ遷移します）
 [![Image from Gyazo](https://i.gyazo.com/3d687a87dd09d37734f769648ea4fcb2.png)](https://www.figma.com/file/gmouuUa3BQDQIqeh8NRowV/%E3%83%90%E3%83%81%E3%82%A7%E3%83%A9%E3%83%BC%E3%83%80%E3%83%BC%E3%83%93%E3%83%BC4?node-id=0%3A1)
+
+## ER図
+（画像をクリックするとGoogleDriveへ遷移します）
+[![Image from Gyazo](https://i.gyazo.com/d6395652606778ef60d89164dcfd3f79.png)](https://drive.google.com/file/d/1-CTAXc4nQxtcXVW81UpkotjkiVykD2OA/view?usp=sharing)
