@@ -1,14 +1,14 @@
-# bachelor_derby
+# バチェラーダービー4
 
 ## サービス概要
 2021年11月25日PrimeVideoにて放送の「バチェラー4」の優勝予想ゲーム
 
 ## ゲームルール
-- ユーザーは登録時に持ち点として100ポイント付与\
-  （ただし番組開始後の登録者は時期に応じて減点）
+- ユーザーは登録時に持ち点として100ポイント付与
 - ユーザーはバチェラー参加者1名のみBET可能で、以下の場合に持ち点を減点
   - 番組開始後にBETするメンバーを変更すると1回につき-10ポイント
-  - 各放送日時点で脱落メンバーにBETしているユーザーには-20ポイント
+  - 各放送日時点で脱落メンバーにBETしているユーザー、または\
+  誰にもBETしていないユーザーには-20ポイント
 - 番組終了時に高得点上位何名かを発表
 
 ## 登場人物
@@ -30,3 +30,7 @@
 ## 画面遷移図
 （画像をクリックするとFigmaへ遷移します）
 [![Image from Gyazo](https://i.gyazo.com/3d687a87dd09d37734f769648ea4fcb2.png)](https://www.figma.com/file/gmouuUa3BQDQIqeh8NRowV/%E3%83%90%E3%83%81%E3%82%A7%E3%83%A9%E3%83%BC%E3%83%80%E3%83%BC%E3%83%93%E3%83%BC4?node-id=0%3A1)
+
+## ER図
+（画像をクリックするとGoogleDriveへ遷移します）
+[![Image from Gyazo](https://i.gyazo.com/7fafcd00ac269acea4a3ecf31c3151f1.png)](https://drive.google.com/file/d/1-CTAXc4nQxtcXVW81UpkotjkiVykD2OA/view?usp=sharing)
