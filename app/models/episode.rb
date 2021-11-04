@@ -1,3 +1,3 @@
 class Episode < ApplicationRecord
-  validates :onair_at, presence: true, uniqueness: true
+  validates :onair_at, presence: true
 end
