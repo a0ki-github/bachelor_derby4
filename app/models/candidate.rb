@@ -1,4 +1,6 @@
 class Candidate < ApplicationRecord
+  has_and_belongs_to_many :episodes
+
   validates :name, presence: true, uniqueness: true, length: { maximum: 255 }
   validates :age, presence: true
   validates :title, presence: true, length: { maximum: 255 }
