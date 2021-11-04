@@ -1,0 +1,36 @@
+p#notice
+  = notice
+h1
+  | Candidates
+table
+  thead
+    tr
+      th
+        | Name
+      th
+        | Age
+      th
+        | Title
+      th
+        | Youtube url
+      th[colspan="3"]
+  tbody
+    - @candidates.each do |candidate|
+      tr
+
+      td
+        = candidate.name
+      td
+        = candidate.age
+      td
+        = candidate.title
+      td
+        = candidate.youtube_url
+      td
+        = link_to 'Show', [:admin, candidate]
+      td
+        = link_to 'Edit', edit_admin_candidate_path(candidate)
+      td
+        = link_to 'Destroy', [:admin, candidate], method: :delete, data: { confirm: 'Are you sure?' }
+br
+= link_to 'New Candidate', new_admin_candidate_path

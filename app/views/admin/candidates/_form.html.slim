@@ -1,0 +1,25 @@
+= form_with(model: [:admin, candidate]) do |form|
+  - if candidate.errors.any?
+    #error_explanation
+
+    h2
+      = pluralize(candidate.errors.count, "error")
+      |  prohibited this candidate from being saved:
+    ul
+      - candidate.errors.each do |error|
+        li
+          = error.full_message
+  .field
+    = form.label :name
+    = form.text_field :name
+  .field
+    = form.label :age
+    = form.number_field :age
+  .field
+    = form.label :title
+    = form.text_field :title
+  .field
+    = form.label :youtube_url
+    = form.text_field :youtube_url
+  .actions
+    = form.submit
