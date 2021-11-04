@@ -1,4 +1,4 @@
-class CandidatesController < ApplicationController
+class Admin::CandidatesController < Admin::BaseController
   before_action :set_candidate, only: %i[ show edit update destroy ]
 
   # GET /candidates or /candidates.json
@@ -25,8 +25,8 @@ class CandidatesController < ApplicationController
 
     respond_to do |format|
       if @candidate.save
-        format.html { redirect_to @candidate, notice: "Candidate was successfully created." }
-        format.json { render :show, status: :created, location: @candidate }
+        format.html { redirect_to [:admin, @candidate], notice: "Candidate was successfully created." }
+        format.json { render :show, status: :created, location: [:admin, @candidate] }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @candidate.errors, status: :unprocessable_entity }
@@ -38,8 +38,8 @@ class CandidatesController < ApplicationController
   def update
     respond_to do |format|
       if @candidate.update(candidate_params)
-        format.html { redirect_to @candidate, notice: "Candidate was successfully updated." }
-        format.json { render :show, status: :ok, location: @candidate }
+        format.html { redirect_to [:admin, @candidate], notice: "Candidate was successfully updated." }
+        format.json { render :show, status: :ok, location: [:admin, @candidate] }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @candidate.errors, status: :unprocessable_entity }
@@ -51,7 +51,7 @@ class CandidatesController < ApplicationController
   def destroy
     @candidate.destroy
     respond_to do |format|
-      format.html { redirect_to candidates_url, notice: "Candidate was successfully destroyed." }
+      format.html { redirect_to admin_candidates_url, notice: "Candidate was successfully destroyed." }
       format.json { head :no_content }
     end
   end
