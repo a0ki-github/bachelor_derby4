@@ -1,14 +1,18 @@
 <template lang="pug">
   .d-flex.flex-column.min-vh-100
+    TheHeader
     router-view
+    TheFooter
 </template>
 
 <script>
+import TheHeader from './components/TheHeader.vue'
+import TheFooter from './components/TheFooter.vue'
+
 export default {
-  data: function () {
-    return {
-      message: "Hello Vue!"
-    }
+  components: {
+    TheHeader,
+    TheFooter
   }
 }
 </script>
