@@ -1,6 +1,6 @@
 <template lang="pug">
-  #app
-    p {{ message }}
+  .d-flex.flex-column.min-vh-100
+    router-view
 </template>
 
 <script>
