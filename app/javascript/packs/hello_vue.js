@@ -7,6 +7,7 @@
 
 import Vue from 'vue'
 import App from '../app.vue'
+import 'bootstrap/dist/css/bootstrap.css'
 
 document.addEventListener('DOMContentLoaded', () => {
   const app = new Vue({
