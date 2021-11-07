@@ -8,11 +8,11 @@
       li 番組終了時に得点上位者を発表
     .text-center
       router-link(
-        class="btn btn-dark m-5 router-link-active"
+        class="btn btn-dark m-3 router-link-active"
         :to="{ name: 'LoginIndex' }"
       ) ログイン
       router-link(
-        class="btn btn-dark m-5 router-link-active"
+        class="btn btn-dark m-3 router-link-active"
         :to="{ name: 'RegisterIndex' }"
       ) ユーザー登録
 </template>
