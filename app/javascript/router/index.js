@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import TopIndex from '../pages/top/index.vue'
 import LoginIndex from '../pages/login/index.vue'
+import RegisterIndex from '../pages/register/index.vue'
 
 Vue.config.productionTip = false
 Vue.use(VueRouter)
