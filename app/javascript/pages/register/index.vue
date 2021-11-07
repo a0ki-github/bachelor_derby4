@@ -23,7 +23,7 @@
       label(for="password_confirmation") パスワード（確認）
       input(
         id="password_confirmation"
-        v-model="user.password"
+        v-model="user.password_confirmation"
         type="password"
         name="パスワード"
         class="form-control"
@@ -31,6 +31,7 @@
     button(
       type="submit"
       class="btn btn-primary my-2 d-block mx-auto"
+      @click="handleCreateUser"
     ) 登録
 </template>
 
@@ -43,6 +44,16 @@ export default {
         name: '',
         password: '',
         password_confirmation: ''
+      }
+    }
+  },
+  methods: {
+    async handleCreateUser() {
+      try {
+        await this.$axios.post('users', { user: this.user })
+        this.$router.push('/login')
+      } catch (error) {
+        console.log(error)
       }
     }
   }
