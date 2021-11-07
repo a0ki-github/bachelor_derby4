@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import TopIndex from '../pages/top/index.vue'
+import LoginIndex from '../pages/login/index.vue'
 
 Vue.config.productionTip = false
 Vue.use(VueRouter)
@@ -18,11 +19,11 @@ const router = new VueRouter({
     //   component: RegisterIndex,
     //   name: 'RegisterIndex'
     // },
-    // {
-    //   path: '/login',
-    //   component: LoginIndex,
-    //   name: 'LoginIndex'
-    // }
+    {
+      path: '/login',
+      component: LoginIndex,
+      name: 'LoginIndex'
+    }
   ]
 })
 
