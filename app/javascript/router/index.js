@@ -14,11 +14,11 @@ const router = new VueRouter({
       component: TopIndex,
       name: "TopIndex" 
     },
-    // {
-    //   path: '/register',
-    //   component: RegisterIndex,
-    //   name: 'RegisterIndex'
-    // },
+    {
+      path: '/register',
+      component: RegisterIndex,
+      name: 'RegisterIndex'
+    },
     {
       path: '/login',
       component: LoginIndex,
