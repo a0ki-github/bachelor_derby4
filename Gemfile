@@ -44,9 +44,13 @@ group :development do
   gem 'spring'
 end
 
-# Added by developer
+# Slim
 gem 'html2slim'
 gem "slim-rails"
+
+# Login
+gem 'sorcery'
+gem 'jwt'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
