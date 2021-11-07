@@ -8,8 +8,9 @@
 import Vue from 'vue'
 import App from '../app.vue'
 import axios from '../plugins/axios'
-import 'bootstrap/dist/css/bootstrap.css'
 import router from '../router'
+import 'bootstrap/dist/css/bootstrap.css'
+import '../plugins/veevalidate'
 
 Vue.prototype.$axios = axios
 
