@@ -37,6 +37,6 @@ const veevalidates = [
       return values.indexOf(value) === -1;
     },
     params: ['values'],
-    message: '既に存在するニックネームです'
+    message: '既に存在する{_field_}です'
   })
 ]
