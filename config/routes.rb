@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :candidates
   end
   namespace :api, format: 'json' do
+    resources :sessions, only: %i(create destroy)
     resources :users, only: %i(create update) do
       get 'me', on: :collection
       get 'name_index', on: :collection
