@@ -33,7 +33,7 @@
       button(
         type="submit"
         class="btn btn-primary my-3 d-block mx-auto"
-        @click.prevent="handleSubmit(login)"
+        @click.prevent="handleSubmit(loginUser)"
       ) ログイン
 </template>
 
@@ -45,7 +45,20 @@ export default {
       user: {
         name: '',
         password: ''
-      }
+      },
+      authUser: null
+    }
+  },
+  methods: {
+    async loginUser() {
+      const sesseionsResponse = await this.$axios.post('sessions', this.user)
+      localStorage.auth_token = sesseionsResponse.data.token
+      this.$axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.auth_token}`
+
+      const userResponse = await this.$axios.get('users/me')
+      this.authUser = userResponse.data
+
+      this.$router.push
     }
   }
 }
