@@ -1,38 +1,55 @@
 <template lang="pug">
   #register-form.container.w-75
     .h3.mb-3.text-center ユーザー登録
-    .form-group.my-2
-      label(for="name") ニックネーム
-      input(
-        id="name"
-        v-model="user.name"
-        type="text"
-        name="ニックネーム"
-        class="form-control"
-      )
-    .form-group.my-2
-      label(for="password") パスワード
-      input(
-        id="password"
-        v-model="user.password"
-        type="password"
-        name="パスワード"
-        class="form-control"
-      )
-    .form-group.my-2
-      label(for="password_confirmation") パスワード（確認）
-      input(
-        id="password_confirmation"
-        v-model="user.password_confirmation"
-        type="password"
-        name="パスワード"
-        class="form-control"
-      )
-    button(
-      type="submit"
-      class="btn btn-primary my-2 d-block mx-auto"
-      @click="handleCreateUser"
-    ) 登録
+    ValidationObserver(v-slot="{ handleSubmit }")
+      .form-group.my-2
+        ValidationProvider(
+          v-slot="{ errors }"
+          rules="required"
+        )
+          label(for="name") ニックネーム
+          input(
+            id="name"
+            v-model="user.name"
+            type="text"
+            name="ニックネーム"
+            class="form-control"
+          )
+          span.text-danger {{ errors[0] }}
+      .form-group.my-2
+        ValidationProvider(
+          v-slot="{ errors }"
+          rules="required|min:3"
+          vid="password"
+        )
+          label(for="password") パスワード
+          input(
+            id="password"
+            v-model="user.password"
+            type="password"
+            name="パスワード"
+            class="form-control"
+          )
+          span.text-danger {{ errors[0] }}
+      .form-group.my-2
+        ValidationProvider(
+          v-slot="{ errors }"
+          rules="required|min:3|password_confirmed:@password"
+        )
+          label(for="password_confirmation") パスワード（確認）
+          input(
+            id="password_confirmation"
+            v-model="user.password_confirmation"
+            type="password"
+            name="パスワード"
+            class="form-control"
+          )
+          span.text-danger {{ errors[0] }}
+      button(
+        type="submit"
+        class="btn btn-primary my-2 d-block mx-auto"
+        @click.prevent="handleSubmit(handleCreateUser)"
+      ) 登録
 </template>
 
 <script>

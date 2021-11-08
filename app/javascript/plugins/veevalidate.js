@@ -9,7 +9,26 @@ const veevalidates = [
   extend('required', {
     ...required,
     message: '{_field_}は必須項目です'
+  }),
+  extend('min', {
+    validate(value, { length }) {
+      return value.length >= length;
+    },
+    params: ['length'],
+    message: '{_field_}は{length}文字以上で入力してください'
+  }),
+  extend('max', {
+    validate(value, { length }) {
+      return value.length <= length;
+    },
+    params: ['length'],
+    message: '{_field_}は{length}文字以下で入力してください'
+  }),
+  extend('password_confirmed', {
+    validate(value, { target }) {
+      return value === target
+    },
+    params: ['target'],
+    message: 'パスワードと一致しません'
   })
 ]
-
-export default veevalidates
