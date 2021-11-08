@@ -5,7 +5,7 @@
       .form-group.my-2
         ValidationProvider(
           v-slot="{ errors }"
-          rules="required"
+          :rules="`required|uniqueness:${users}`"
         )
           label(for="name") ニックネーム
           input(
@@ -14,6 +14,7 @@
             type="text"
             name="ニックネーム"
             class="form-control"
+            @input="fetchUsers"
           )
           span.text-danger {{ errors[0] }}
       .form-group.my-2
@@ -61,10 +62,19 @@ export default {
         name: '',
         password: '',
         password_confirmation: ''
-      }
+      },
+      users: []
     }
   },
   methods: {
+    async fetchUsers() {
+      try {
+        const res = await this.$axios.get('users/name_index')
+        this.users = res.data
+      } catch (error) {
+        console.log(error)
+      }
+    },
     async handleCreateUser() {
       try {
         await this.$axios.post('users', { user: this.user })

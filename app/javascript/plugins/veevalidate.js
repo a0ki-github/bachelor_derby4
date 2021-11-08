@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import { ValidationProvider, ValidationObserver, extend } from 'vee-validate'
 import { required } from 'vee-validate/dist/rules'
+import axios from './axios'
 
 Vue.component('ValidationObserver', ValidationObserver)
 Vue.component('ValidationProvider', ValidationProvider)
@@ -30,5 +31,12 @@ const veevalidates = [
     },
     params: ['target'],
     message: 'パスワードと一致しません'
+  }),
+  extend('uniqueness', {
+    validate(value, { values }) {
+      return values.indexOf(value) === -1;
+    },
+    params: ['values'],
+    message: '既に存在するニックネームです'
   })
 ]

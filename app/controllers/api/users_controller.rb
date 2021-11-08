@@ -8,6 +8,10 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def name_index
+    render json: User.all.pluck(:name)
+  end
+
   private
 
   def user_params

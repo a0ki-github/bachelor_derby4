@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   namespace :api, format: 'json' do
     resources :users, only: %i(create update) do
       get 'me', on: :collection
+      get 'name_index', on: :collection
     end
   end
   get '*path', to: 'home#index'
