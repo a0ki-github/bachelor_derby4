@@ -5,7 +5,7 @@
       .form-group.my-2
         ValidationProvider(
           v-slot="{ errors }"
-          :rules="`required|uniqueness:${users}`"
+          :rules="`required|max:255|uniqueness:${users}`"
         )
           label(for="name") ニックネーム
           input(
