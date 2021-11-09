@@ -70,7 +70,7 @@ export default {
     async fetchExistingNames() {
       try {
         const res = await this.$axios.get('users/name_index')
-        this.users = res.data
+        this.existing_names = res.data
       } catch (error) {
         console.log(error)
       }
