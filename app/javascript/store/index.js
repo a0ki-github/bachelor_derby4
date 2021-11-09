@@ -20,7 +20,7 @@ const store = new Vuex.Store({
   },
   actions: {
     async fetchAuthUser({ commit, state }) {
-      if (!localStorage.autu_token) return null;
+      if (!localStorage.auth_token) return null;
       if (state.authUser) return state.authUser;
 
       const userResponse = await axios.get('users/me')
