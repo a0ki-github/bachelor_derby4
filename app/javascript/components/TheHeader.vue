@@ -9,15 +9,12 @@
         v-if="authUser"
         class="navbar-nav"
       )
-        li
+        li.nav-item.active
           p.text-white.m-2 {{ authUser.name }}
-        li(
-          @click="handleLogoutUser"
-          class="nav-item active"
-        )
+        li.nav-item.active(@click="handleLogoutUser")
           router-link(
             :to="{ name: 'TopIndex' }"
-            class="nav-link"
+            class="nav-link text-white"
           ) ログアウト
 </template>
 
