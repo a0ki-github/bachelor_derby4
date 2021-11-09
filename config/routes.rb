@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       get 'me', on: :collection
       get 'name_index', on: :collection
     end
+    resources :bettings, only: %i(create)
   end
   get '*path', to: 'home#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
