@@ -45,6 +45,11 @@ const store = new Vuex.Store({
 
       const userResponse = await axios.get('users/me')
       commit('setUser', userResponse.data)
+    },
+    async logoutUser({ commit }) {
+      commit('setUser', null)
+      localStorage.removeItem('auth_token')
+      axios.defaults.headers.common['Authorization'] = ''
     }
   }
 })

@@ -9,8 +9,4 @@ class Api::SessionsController < ApplicationController
       head :unauthorized
     end
   end
-
-  def destroy
-    logout
-  end
 end
