@@ -33,11 +33,13 @@
       button(
         type="submit"
         class="btn btn-primary my-3 d-block mx-auto"
-        @click.prevent="handleSubmit(loginUser)"
+        @click.prevent="handleSubmit(handleLoginUser)"
       ) ログイン
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
   name: 'LoginIndex',
   data() {
@@ -45,20 +47,18 @@ export default {
       user: {
         name: '',
         password: ''
-      },
-      authUser: null
+      }
     }
   },
   methods: {
-    async loginUser() {
-      const sesseionsResponse = await this.$axios.post('sessions', this.user)
-      localStorage.auth_token = sesseionsResponse.data.token
-      this.$axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.auth_token}`
-
-      const userResponse = await this.$axios.get('users/me')
-      this.authUser = userResponse.data
-
-      this.$router.push
+    ...mapActions(['loginUser']),
+    async handleLoginUser() {
+      try {
+        await this.loginUser(this.user)
+        this.$router.push({ name: 'TopIndex'})
+      } catch(error) {
+        console.error()
+      }
     }
   }
 }
