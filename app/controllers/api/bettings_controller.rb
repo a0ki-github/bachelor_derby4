@@ -1,4 +1,6 @@
 class Api::BettingsController < ApplicationController
+  before_action: authenticate!
+
   def create
     betting = current_user.bettings.new(betting_params)
     if betting.save
