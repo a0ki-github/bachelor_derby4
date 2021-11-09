@@ -5,7 +5,7 @@
       .form-group.my-2
         ValidationProvider(
           v-slot="{ errors }"
-          :rules="`required|max:255|uniqueness:${users}`"
+          :rules="`required|max:255|uniqueness:${existing_names}`"
         )
           label(for="name") ニックネーム
           input(
@@ -63,7 +63,7 @@ export default {
         password: '',
         password_confirmation: ''
       },
-      users: []
+      existing_names: []
     }
   },
   methods: {
