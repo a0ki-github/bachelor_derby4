@@ -49,7 +49,7 @@
       button(
         type="submit"
         class="btn btn-primary my-2 d-block mx-auto"
-        @click.prevent="handleSubmit(handleCreateUser)"
+        @click.prevent="handleSubmit(createUser)"
       ) 登録
 </template>
 
@@ -75,7 +75,7 @@ export default {
         console.log(error)
       }
     },
-    async handleCreateUser() {
+    async createUser() {
       try {
         await this.$axios.post('users', { user: this.user })
         this.$router.push('/login')
