@@ -1,0 +1,65 @@
+<template lang="pug">
+  #login-form.container.w-75
+    .h3.mb-3.text-center ログイン
+    ValidationObserver(v-slot="{ handleSubmit }")
+      .form-group.my-2
+        ValidationProvider(
+          v-slot="{ errors }"
+          rules="required|max:255"
+        )
+          label(for="name") ニックネーム
+          input(
+            id="name"
+            v-model="user.name"
+            type="text"
+            name="ニックネーム"
+            class="form-control"
+          )
+          span.text-danger {{ errors[0] }}
+      .form-group.my-2
+        ValidationProvider(
+          v-slot="{ errors }"
+          rules="required|min:3"
+        )
+          label(for="password") パスワード
+          input(
+            id="password"
+            v-model="user.password"
+            type="password"
+            name="パスワード"
+            class="form-control"
+          )
+          span.text-danger {{ errors[0] }}
+      button(
+        type="submit"
+        class="btn btn-primary my-3 d-block mx-auto"
+        @click.prevent="handleSubmit(handleLoginUser)"
+      ) ログイン
+</template>
+
+<script>
+import { mapActions } from 'vuex'
+
+export default {
+  name: 'LoginIndex',
+  data() {
+    return {
+      user: {
+        name: '',
+        password: ''
+      }
+    }
+  },
+  methods: {
+    ...mapActions(['loginUser']),
+    async handleLoginUser() {
+      try {
+        await this.loginUser(this.user)
+        this.$router.push({ name: 'TopIndex'})
+      } catch(error) {
+        console.error()
+      }
+    }
+  }
+}
+</script>

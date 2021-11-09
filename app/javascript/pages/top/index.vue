@@ -6,4 +6,13 @@
       li BETするメンバーは変更可能だが、 <br> 番組開始(11/25 22:00)後は1回につき-10P
       li 各放送日時点で脱落メンバーにBETしているユーザー、または誰にもBETしていないユーザーには-20P
       li 番組終了時に得点上位者を発表
+    .text-center
+      router-link(
+        class="btn btn-dark m-3 router-link-active"
+        :to="{ name: 'LoginIndex' }"
+      ) ログイン
+      router-link(
+        class="btn btn-dark m-3 router-link-active"
+        :to="{ name: 'RegisterIndex' }"
+      ) ユーザー登録
 </template>
