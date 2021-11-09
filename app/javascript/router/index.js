@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 import TopIndex from '../pages/top/index.vue'
 import LoginIndex from '../pages/login/index.vue'
 import RegisterIndex from '../pages/register/index.vue'
+import BettingIndex from '../pages/betting/index.vue'
+import store from '../store'
 
 Vue.config.productionTip = false
 Vue.use(VueRouter)
@@ -24,8 +26,24 @@ const router = new VueRouter({
       path: '/login',
       component: LoginIndex,
       name: 'LoginIndex'
+    },
+    {
+      path: '/bettings',
+      component: BettingIndex,
+      name: 'BettingIndex',
+      meta: { requireAuth: true }
     }
   ]
+})
+
+router.beforeEach((to, _from, next) =>{
+  store.dispatch('fetchAuthUser').then((authUser) => {
+    if (to.matched.some(record => record.meta.requireAuth) && !authUser) {
+      next({ name: 'LoginIndex' });
+    } else {
+      next();
+    }
+  })
 })
 
 export default router
