@@ -14,7 +14,7 @@
             type="text"
             name="ニックネーム"
             class="form-control"
-            @input="fetchUsers"
+            @input="fetchUsersNames"
           )
           span.text-danger {{ errors[0] }}
       .form-group.my-2
@@ -67,7 +67,7 @@ export default {
     }
   },
   methods: {
-    async fetchUsers() {
+    async fetchUsersNames() {
       try {
         const res = await this.$axios.get('users/name_index')
         this.users = res.data
