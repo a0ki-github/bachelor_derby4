@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   include JwtToken
   has_many :bettings, dependent: :destroy
+  has_many :candidates, through: :bettings
   authenticates_with_sorcery!
 
   validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
