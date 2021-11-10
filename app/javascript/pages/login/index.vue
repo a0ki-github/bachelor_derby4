@@ -51,7 +51,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['loginUser']),
+    ...mapActions('users', ['loginUser']),
     async handleLoginUser() {
       try {
         await this.loginUser(this.user)

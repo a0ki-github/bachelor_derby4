@@ -27,7 +27,7 @@ import { mapGetters } from 'vuex'
 export default {
   name: 'TopIndex',
   computed: {
-    ...mapGetters(['authUser'])
+    ...mapGetters('users', ['authUser'])
   }
 }
 </script>

@@ -22,10 +22,10 @@
 import { mapActions, mapGetters } from 'vuex'
 export default {
   computed: {
-    ...mapGetters(['authUser'])
+    ...mapGetters('users', ['authUser'])
   },
   methods: {
-    ...mapActions(['logoutUser']),
+    ...mapActions('users', ['logoutUser']),
     handleLogoutUser() {
       this.logoutUser()
     }
