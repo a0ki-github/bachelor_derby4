@@ -8,7 +8,7 @@
             rules="required"
           )
           p.text-danger.my-3 {{ errors[0] }}
-          template(v-for="candidate in candidates")
+          template(v-for="candidate in except_current_candidates")
             input(
               type="radio"
               name="候補者"
@@ -41,7 +41,11 @@ export default {
     this.fetchCandidates();
   },
   computed: {
-    ...mapGetters('candidates', ['candidates'])
+    ...mapGetters('candidates', ['candidates']),
+    ...mapGetters('users', ['authUser']),
+    except_current_candidates() {
+      return this.candidates.filter(candidate => candidate.id != this.authUser.current_candidate.id )
+    }
   },
   methods: {
     ...mapActions('candidates', ['fetchCandidates']),
