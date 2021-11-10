@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       get 'name_index', on: :collection
     end
     resources :bettings, only: %i(create)
+    resources :candidates, only: %i(index)
   end
   get '*path', to: 'home#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
