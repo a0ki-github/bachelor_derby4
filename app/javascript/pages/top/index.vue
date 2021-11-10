@@ -7,6 +7,7 @@
       li 各放送日時点で脱落メンバーにBETしているユーザー、または誰にもBETしていないユーザーには-20P
       li 番組終了時に得点上位者を発表
     .text-center(v-if="authUser")
+      p 現在{{ authUser.current_candidate.name }}にBETしています。
       router-link(
         :to="{ name: 'BettingIndex' }"
         class="btn btn-dark m-3 router-link-active"
