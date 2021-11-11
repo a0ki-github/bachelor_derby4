@@ -18,6 +18,10 @@
             )
             label(:for="candidate.id") {{ candidate.name }}({{ candidate.age }}) {{ candidate.title }}
             br
+            iframe(
+              :src="`https://www.youtube.com/embed/${identifier(candidate.youtube_url)}`"
+            )
+            br
           p.text-danger.my-3 {{ errors[0] }}
       button(
         type="submit"
@@ -46,6 +50,11 @@ export default {
     ...mapGetters('users', ['authUser']),
     except_current_candidates() {
       return this.candidates.filter(candidate => candidate.id != this.authUser.current_candidate.id )
+    },
+    identifier() {
+      return (youtube_url) => {
+        return youtube_url.split('/').slice(-1)
+      }
     }
   },
   methods: {
