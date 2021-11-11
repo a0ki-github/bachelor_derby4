@@ -10,7 +10,7 @@ const candidates = {
       return state.candidates
     },
     identifier: (_state) => (url) => {
-      return url.split('/').slice(-1)
+      return url.split('/').slice(-1)[0]
     }
   },
   mutations: {
