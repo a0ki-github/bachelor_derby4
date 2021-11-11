@@ -22,7 +22,7 @@
       button(
         type="submit"
         class="btn btn-primary my-2 d-block mx-auto"
-        @click.prevent="handleSubmit(createBetting)"
+        @click.prevent="handleSubmit(handleCreateBetting)"
       ) BETする
 </template>
 
@@ -48,9 +48,10 @@ export default {
     }
   },
   methods: {
+    ...mapActions('users', ['createBetting']),
     ...mapActions('candidates', ['fetchCandidates']),
-    async createBetting() {
-      const res = await this.$axios.post('bettings', { betting: this.betting })
+    async handleCreateBetting() {
+      this.createBetting(this.betting)
       this.$router.push({ name: 'TopIndex' })
     }
   }

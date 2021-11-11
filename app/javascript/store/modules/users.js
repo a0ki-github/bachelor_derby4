@@ -13,6 +13,9 @@ const users = {
   mutations: {
     setUser(state, user) {
       state.authUser = user
+    },
+    setCurrentCandidate(state, candidate) {
+      state.authUser.current_candidate = candidate
     }
   },
   actions: {
@@ -47,6 +50,10 @@ const users = {
       commit('setUser', null)
       localStorage.removeItem('auth_token')
       axios.defaults.headers.common['Authorization'] = ''
+    },
+    async createBetting({ commit }, betting) {
+      const res = await axios.post('bettings', { betting: betting })
+      commit('setCurrentCandidate', res.data)
     }
   }
 }
