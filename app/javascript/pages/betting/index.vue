@@ -16,10 +16,20 @@
               :value="candidate.id"
               v-model="betting.candidate_id"
             )
-            label(:for="candidate.id") {{ candidate.name }}({{ candidate.age }}) {{ candidate.title }}
+            label(
+              :for="candidate.id"
+              class="h4"
+            ) {{ candidate.name }}({{ candidate.age }}) {{ candidate.title }}
             br
             iframe(
               :src="`https://www.youtube.com/embed/${identifier(candidate.youtube_url)}`"
+              width="560"
+              height="315"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              @scroll.passive="onScroll"
             )
             br
           p.text-danger.my-3 {{ errors[0] }}
@@ -46,15 +56,10 @@ export default {
     this.fetchCandidates();
   },
   computed: {
-    ...mapGetters('candidates', ['candidates']),
+    ...mapGetters('candidates', ['candidates', 'identifier']),
     ...mapGetters('users', ['authUser']),
     except_current_candidates() {
       return this.candidates.filter(candidate => candidate.id != this.authUser.current_candidate.id )
-    },
-    identifier() {
-      return (youtube_url) => {
-        return youtube_url.split('/').slice(-1)
-      }
     }
   },
   methods: {

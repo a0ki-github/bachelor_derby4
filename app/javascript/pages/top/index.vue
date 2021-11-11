@@ -8,6 +8,16 @@
       li 番組終了時に得点上位者を発表
     .text-center(v-if="authUser")
       p 現在{{ authUser.current_candidate.name }}にBETしています。
+      iframe(
+        :src="`https://www.youtube.com/embed/${identifier(authUser.current_candidate.youtube_url)}`"
+        width="560"
+        height="315"
+        flameboarder="0"
+        allow="encrypted-media; autoplay"
+        allowfullscreen="true"
+        @scroll.passive="onScroll"
+      )
+      br
       router-link(
         :to="{ name: 'BettingIndex' }"
         class="btn btn-dark m-3 router-link-active"
@@ -28,7 +38,8 @@ import { mapGetters } from 'vuex'
 export default {
   name: 'TopIndex',
   computed: {
-    ...mapGetters('users', ['authUser'])
+    ...mapGetters('users', ['authUser']),
+    ...mapGetters('candidates', ['identifier'])
   }
 }
 </script>

@@ -8,6 +8,9 @@ const candidates = {
   getters: {
     candidates: state => {
       return state.candidates
+    },
+    identifier: (_state) => (url) => {
+      return url.split('/').slice(-1)
     }
   },
   mutations: {
