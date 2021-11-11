@@ -22,6 +22,7 @@
       button(
         type="submit"
         class="btn btn-primary my-2 d-block mx-auto"
+        data-confirm="-10Pとなりますが、よろしいですか？"
         @click.prevent="handleSubmit(handleCreateBetting)"
       ) BETする
 </template>
