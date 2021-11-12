@@ -31,7 +31,6 @@
       button(
         type="submit"
         class="btn btn-primary my-2 d-block mx-auto"
-        data-confirm="-10Pとなりますが、よろしいですか？"
         @click.prevent="handleSubmit(handleCreateBetting)"
       ) BETする
 </template>
@@ -63,10 +62,12 @@ export default {
     ...mapActions('users', ['createBetting']),
     ...mapActions('candidates', ['fetchCandidates']),
     async handleCreateBetting() {
-      this.createBetting(this.betting)
-      await this.$router.push({ name: 'TopIndex' })
-      //YouTube更新のため。（ドメインの異なるiframeは操作できないため、ページごとリロード）
-      window.location.reload()
+      if (window.confirm('-10Pとなりますが、よろしいですか？')) {
+        this.createBetting(this.betting)
+        await this.$router.push({ name: 'TopIndex' })
+        //YouTube更新のため。（ドメインの異なるiframeは操作できないため、ページごとリロード）
+        window.location.reload()
+      }
     }
   }
 }
