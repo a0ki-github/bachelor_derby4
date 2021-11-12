@@ -64,7 +64,9 @@ export default {
     ...mapActions('candidates', ['fetchCandidates']),
     async handleCreateBetting() {
       this.createBetting(this.betting)
-      this.$router.push({ name: 'TopIndex' })
+      await this.$router.push({ name: 'TopIndex' })
+      //YouTube更新のため。（ドメインの異なるiframeは操作できないため、ページごとリロード）
+      window.location.reload()
     }
   }
 }

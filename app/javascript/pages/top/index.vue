@@ -8,7 +8,10 @@
       li 番組終了時に得点上位者を発表
     .text-center(v-if="authUser")
       p 現在{{ authUser.current_candidate.name }}にBETしています。
-      TheYoutube(:youtube_url="authUser.current_candidate.youtube_url")
+      TheYoutube(
+        id="topIframe"
+        :youtube_url="authUser.current_candidate.youtube_url"
+      )
       br
       router-link(
         :to="{ name: 'BettingIndex' }"
