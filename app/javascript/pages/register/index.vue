@@ -2,55 +2,59 @@
   #register-form.container.w-75
     .h3.mb-3.text-center ユーザー登録
     ValidationObserver(v-slot="{ handleSubmit }")
-      .form-group.my-2
-        ValidationProvider(
-          v-slot="{ errors }"
-          :rules="`required|max:255|uniqueness:${existing_names}`"
-        )
-          label(for="name") ニックネーム
-          input(
-            id="name"
-            v-model="user.name"
-            type="text"
-            name="ニックネーム"
-            class="form-control"
-            @input="fetchExistingNames"
+      form
+        .form-group.my-2
+          ValidationProvider(
+            v-slot="{ errors }"
+            :rules="`required|max:255|uniqueness:${existing_names}`"
           )
-          span.text-danger {{ errors[0] }}
-      .form-group.my-2
-        ValidationProvider(
-          v-slot="{ errors }"
-          rules="required|min:3"
-          vid="password"
-        )
-          label(for="password") パスワード
-          input(
-            id="password"
-            v-model="user.password"
-            type="password"
-            name="パスワード"
-            class="form-control"
+            label(for="name") ニックネーム
+            input(
+              id="name"
+              v-model="user.name"
+              type="text"
+              name="ニックネーム"
+              class="form-control"
+              autocomplete="username"
+              @input="fetchExistingNames"
+            )
+            span.text-danger {{ errors[0] }}
+        .form-group.my-2
+          ValidationProvider(
+            v-slot="{ errors }"
+            rules="required|min:3"
+            vid="password"
           )
-          span.text-danger {{ errors[0] }}
-      .form-group.my-2
-        ValidationProvider(
-          v-slot="{ errors }"
-          rules="required|min:3|password_confirmed:@password"
-        )
-          label(for="password_confirmation") パスワード（確認）
-          input(
-            id="password_confirmation"
-            v-model="user.password_confirmation"
-            type="password"
-            name="パスワード"
-            class="form-control"
+            label(for="password") パスワード
+            input(
+              id="password"
+              v-model="user.password"
+              type="password"
+              name="パスワード"
+              class="form-control"
+              autocomplete="new-password"
+            )
+            span.text-danger {{ errors[0] }}
+        .form-group.my-2
+          ValidationProvider(
+            v-slot="{ errors }"
+            rules="required|min:3|password_confirmed:@password"
           )
-          span.text-danger {{ errors[0] }}
-      button(
-        type="submit"
-        class="btn btn-primary my-2 d-block mx-auto"
-        @click.prevent="handleSubmit(createUser)"
-      ) 登録
+            label(for="password_confirmation") パスワード（確認）
+            input(
+              id="password_confirmation"
+              v-model="user.password_confirmation"
+              type="password"
+              name="パスワード"
+              class="form-control"
+              autocomplete="new-password"
+            )
+            span.text-danger {{ errors[0] }}
+        button(
+          type="submit"
+          class="btn btn-primary my-2 d-block mx-auto"
+          @click.prevent="handleSubmit(createUser)"
+        ) 登録
 </template>
 
 <script>
