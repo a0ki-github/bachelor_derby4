@@ -9,13 +9,11 @@
     .text-center(v-if="authUser")
       p 現在{{ authUser.current_candidate.name }}にBETしています。
       iframe(
-        :src="`https://www.youtube.com/embed/${identifier(authUser.current_candidate.youtube_url)}`"
+        :src="`https://www.youtube-nocookie.com/embed/${identifier(authUser.current_candidate.youtube_url)}`"
         width="560"
         height="315"
         flameboarder="0"
-        allow="encrypted-media; autoplay"
-        allowfullscreen="true"
-        @scroll.passive="onScroll"
+        allow="encrypted-media; autoplay; fullscreen"
       )
       br
       router-link(

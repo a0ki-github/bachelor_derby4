@@ -22,14 +22,11 @@
             ) {{ candidate.name }}({{ candidate.age }}) {{ candidate.title }}
             br
             iframe(
-              :src="`https://www.youtube.com/embed/${identifier(candidate.youtube_url)}`"
+              :src="`https://www.youtube-nocookie.com/embed/${identifier(candidate.youtube_url)}`"
               width="560"
               height="315"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-              @scroll.passive="onScroll"
+              flameboarder="0"
+              allow="encrypted-media; autoplay; fullscreen"
             )
             br
           p.text-danger.my-3 {{ errors[0] }}
