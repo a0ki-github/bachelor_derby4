@@ -8,7 +8,12 @@
       li 番組終了時に得点上位者を発表
     .text-center.mt-5(v-if="authUser")
       template(v-if="authUser.current_candidate")
-        p 現在{{ summary(authUser.current_candidate) }}にBETしています。
+        .d-inline-block.m-4
+          | 現在のポイント
+          h3 {{ authUser.points }}P
+        .d-inline-block.m-4
+          | 現在のBET
+          h3 {{ authUser.current_candidate.name }}
         TheYoutube(
           id="topIframe"
           :youtube_url="authUser.current_candidate.youtube_url"

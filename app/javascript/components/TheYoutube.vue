@@ -5,6 +5,7 @@
     height="315"
     flameboarder="0"
     allow="encrypted-media; autoplay; fullscreen"
+    class="d-block m-auto"
   )
 </template>
 

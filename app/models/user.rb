@@ -13,4 +13,8 @@ class User < ApplicationRecord
   def current_candidate
     bettings.last.candidate if bettings.any?
   end
+
+  def points
+    points = 100
+  end
 end
