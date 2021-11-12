@@ -1,6 +1,7 @@
 <template lang="pug">
   #betting-form.container.w-75
-    .h3.mb-3.text-center BET
+    .h1.mb-5.text-center BET
+    .h5.mb-5.text-center 現在のBET： {{ authUser.current_candidate.name }}({{ authUser.current_candidate.age }}) {{ authUser.current_candidate.title }}
     ValidationObserver(v-slot="{ handleSubmit }")
       .form-group
         ValidationProvider(
@@ -8,7 +9,10 @@
             rules="required"
           )
           p.text-danger.my-3 {{ errors[0] }}
-          template(v-for="candidate in except_current_candidates")
+          div(
+            v-for="candidate in except_current_candidates"
+            class="mb-5"
+          )
             input(
               type="radio"
               name="候補者"
@@ -18,13 +22,11 @@
             )
             label(
               :for="candidate.id"
-              class="h4"
+              class="h5"
             ) {{ candidate.name }}({{ candidate.age }}) {{ candidate.title }}
             br
             iframe(
               :src="`https://www.youtube-nocookie.com/embed/${identifier(candidate.youtube_url)}`"
-              width="560"
-              height="315"
               flameboarder="0"
               allow="encrypted-media; autoplay; fullscreen"
             )
