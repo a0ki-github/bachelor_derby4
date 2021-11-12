@@ -11,6 +11,6 @@ class User < ApplicationRecord
   validates :name, uniqueness: true, presence: true, length: { maximum: 255 }
 
   def current_candidate
-    bettings.last.candidate
+    bettings.last.candidate if bettings.any?
   end
 end

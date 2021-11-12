@@ -1,7 +1,8 @@
 <template lang="pug">
   #betting-form.container.w-75
     .h1.mb-5.text-center BET
-    .h5.mb-5.text-center 現在のBET： {{ summary(authUser.current_candidate) }}
+    .h5.mb-5.text-center(v-if="authUser.current_candidate")
+      | 現在のBET： {{ summary(authUser.current_candidate) }}
     ValidationObserver(v-slot="{ handleSubmit }")
       .form-group
         ValidationProvider(
@@ -55,7 +56,11 @@ export default {
     ...mapGetters('candidates', ['candidates', 'summary']),
     ...mapGetters('users', ['authUser']),
     except_current_candidates() {
-      return this.candidates.filter(candidate => candidate.id != this.authUser.current_candidate.id )
+      if (this.authUser.current_candidate) {
+        return this.candidates.filter(candidate => candidate.id != this.authUser.current_candidate.id )
+      } else {
+        return this.candidates
+      }
     }
   },
   methods: {

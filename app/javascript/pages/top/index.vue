@@ -6,12 +6,15 @@
       li BETするメンバーは変更可能だが、 <br> 番組開始(11/25 22:00)後は1回につき-10P
       li 各放送日時点で脱落メンバーにBETしているユーザー、または誰にもBETしていないユーザーには-20P
       li 番組終了時に得点上位者を発表
-    .text-center(v-if="authUser")
-      p 現在{{ summary(authUser.current_candidate) }}にBETしています。
-      TheYoutube(
-        id="topIframe"
-        :youtube_url="authUser.current_candidate.youtube_url"
-      )
+    .text-center.mt-5(v-if="authUser")
+      template(v-if="authUser.current_candidate")
+        p 現在{{ summary(authUser.current_candidate) }}にBETしています。
+        TheYoutube(
+          id="topIframe"
+          :youtube_url="authUser.current_candidate.youtube_url"
+        )
+      template(v-else)
+        span まだBETはありません。
       br
       router-link(
         :to="{ name: 'BettingIndex' }"
