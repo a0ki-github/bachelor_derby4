@@ -5,4 +5,30 @@
         :to="{name: 'TopIndex'}"
         class="navbar-brand mb-0 h1"
       ) バチェラーダービー4
+      ul(
+        v-if="authUser"
+        class="navbar-nav"
+      )
+        li.nav-item.active
+          p.text-white.m-2 {{ authUser.name }}
+        li.nav-item.active(@click="handleLogoutUser")
+          router-link(
+            :to="{ name: 'TopIndex' }"
+            class="nav-link text-white"
+          ) ログアウト
 </template>
+
+<script>
+import { mapActions, mapGetters } from 'vuex'
+export default {
+  computed: {
+    ...mapGetters('users', ['authUser'])
+  },
+  methods: {
+    ...mapActions('users', ['logoutUser']),
+    handleLogoutUser() {
+      this.logoutUser()
+    }
+  }
+}
+</script>

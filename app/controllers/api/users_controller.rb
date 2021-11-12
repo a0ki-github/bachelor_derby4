@@ -1,4 +1,6 @@
 class Api::UsersController < ApplicationController
+  before_action :authenticate!, only: :me
+
   def create
     user = User.new(user_params)
     if user.save
@@ -9,7 +11,7 @@ class Api::UsersController < ApplicationController
   end
 
   def me
-    render json: @current_user
+    render json: @current_user, methods: [:current_candidate]
   end
 
   def name_index
