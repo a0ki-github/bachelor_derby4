@@ -11,6 +11,9 @@ const candidates = {
     },
     identifier: (_state) => (url) => {
       return url.split('/').slice(-1)[0]
+    },
+    summary: (_state) => (candidate) => {
+      return candidate.name + '（' + candidate.age.toString() + '）' + candidate.title
     }
   },
   mutations: {

@@ -1,7 +1,7 @@
 <template lang="pug">
   #betting-form.container.w-75
     .h1.mb-5.text-center BET
-    .h5.mb-5.text-center 現在のBET： {{ authUser.current_candidate.name }}({{ authUser.current_candidate.age }}) {{ authUser.current_candidate.title }}
+    .h5.mb-5.text-center 現在のBET： {{ summary(authUser.current_candidate) }}
     ValidationObserver(v-slot="{ handleSubmit }")
       .form-group
         ValidationProvider(
@@ -23,7 +23,7 @@
             label(
               :for="candidate.id"
               class="h5"
-            ) {{ candidate.name }}({{ candidate.age }}) {{ candidate.title }}
+            ) {{ summary(candidate) }}
             br
             TheYoutube(:youtube_url="candidate.youtube_url")
             br
@@ -52,7 +52,7 @@ export default {
     this.fetchCandidates();
   },
   computed: {
-    ...mapGetters('candidates', ['candidates']),
+    ...mapGetters('candidates', ['candidates', 'summary']),
     ...mapGetters('users', ['authUser']),
     except_current_candidates() {
       return this.candidates.filter(candidate => candidate.id != this.authUser.current_candidate.id )
