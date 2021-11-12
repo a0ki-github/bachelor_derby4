@@ -25,11 +25,7 @@
               class="h5"
             ) {{ candidate.name }}({{ candidate.age }}) {{ candidate.title }}
             br
-            iframe(
-              :src="`https://www.youtube-nocookie.com/embed/${identifier(candidate.youtube_url)}`"
-              flameboarder="0"
-              allow="encrypted-media; autoplay; fullscreen"
-            )
+            TheYoutube(:youtube_url="candidate.youtube_url")
             br
           p.text-danger.my-3 {{ errors[0] }}
       button(
@@ -41,9 +37,11 @@
 </template>
 
 <script>
+import TheYoutube from '../../components/TheYoutube.vue'
 import { mapActions, mapGetters } from 'vuex'
 export default {
   name: 'BettingIndex',
+  components: { TheYoutube },
   data() {
     return {
       betting: {
@@ -55,7 +53,7 @@ export default {
     this.fetchCandidates();
   },
   computed: {
-    ...mapGetters('candidates', ['candidates', 'identifier']),
+    ...mapGetters('candidates', ['candidates']),
     ...mapGetters('users', ['authUser']),
     except_current_candidates() {
       return this.candidates.filter(candidate => candidate.id != this.authUser.current_candidate.id )
