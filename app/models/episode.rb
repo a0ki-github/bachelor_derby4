@@ -8,5 +8,4 @@ class Episode < ApplicationRecord
   scope :three, -> { find_by(onair_at: Time.new(2021, 12, 9, 22)) }
   scope :four, -> { where(onair_at: Time.new(2021, 12, 16, 22)).first }
   scope :final, -> { where(onair_at: Time.new(2021, 12, 16, 22)).last }
-
 end

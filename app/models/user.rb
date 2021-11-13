@@ -17,8 +17,9 @@ class User < ApplicationRecord
   def points
     points = 100
 
-    if after(Episode.one.onair_at)
+    if after Episode.one
       points -= (bettings.count -1) * 10
+
     end
 
     return points
@@ -27,6 +28,6 @@ class User < ApplicationRecord
   private
 
   def after(episode)
-    Time.current > episode
+    Time.current > episode.onair_at
   end
 end
