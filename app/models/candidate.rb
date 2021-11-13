@@ -7,6 +7,4 @@ class Candidate < ApplicationRecord
   validates :age, presence: true
   validates :title, presence: true, length: { maximum: 255 }
   validates :youtube_url, presence: true
-
-  scope :lost_in_episode, ->(episode) { all - Episode.send(episode).candidates }
 end
