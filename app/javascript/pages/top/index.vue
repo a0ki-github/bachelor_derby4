@@ -17,6 +17,7 @@
         TheYoutube(
           id="topIframe"
           :youtube_url="authUser.current_candidate.youtube_url"
+          class="d-block m-auto"
         )
       template(v-else)
         span まだBETはありません。
