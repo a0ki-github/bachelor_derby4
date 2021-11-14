@@ -54,11 +54,16 @@
               autocomplete="new-password"
             )
             span.text-danger {{ errors[0] }}
-        button(
-          type="submit"
-          class="btn btn-primary my-2 d-block mx-auto"
-          @click.prevent="handleSubmit(createUser)"
-        ) 登録
+        .text-center
+          button(
+            type="submit"
+            class="btn btn-primary m-2"
+            @click.prevent="handleSubmit(createUser)"
+          ) 登録
+          router-link(
+            :to="{name: 'TopIndex'}"
+            class="btn btn-secondary m-2 d-inline-block mx-auto"
+          ) 戻る
 </template>
 
 <script>

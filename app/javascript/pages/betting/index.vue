@@ -33,11 +33,16 @@
             TheYoutube(:youtube_url="candidate.youtube_url")
             br
           p.text-danger.my-3 {{ errors[0] }}
-      button(
-        type="submit"
-        class="btn btn-primary my-2 d-block mx-auto"
-        @click.prevent="handleSubmit(handleCreateBetting)"
-      ) BETする
+      .text-center
+        button(
+          type="submit"
+          class="btn btn-primary my-2 d-block mx-auto"
+          @click.prevent="handleSubmit(handleCreateBetting)"
+        ) BETする
+        router-link(
+          :to="{name: 'TopIndex'}"
+          class="btn btn-secondary m-2"
+        ) 戻る
 </template>
 
 <script>

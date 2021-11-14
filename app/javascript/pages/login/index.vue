@@ -33,11 +33,16 @@
               autocomplete="current-password"
             )
             span.text-danger {{ errors[0] }}
-        button(
-          type="submit"
-          class="btn btn-primary my-3 d-block mx-auto"
-          @click.prevent="handleSubmit(handleLoginUser)"
-        ) ログイン
+        .text-center
+          button(
+            type="submit"
+            class="btn btn-primary m-2"
+            @click.prevent="handleSubmit(handleLoginUser)"
+          ) ログイン
+          router-link(
+            :to="{name: 'TopIndex'}"
+            class="btn btn-secondary m-2"
+          ) 戻る
 </template>
 
 <script>
