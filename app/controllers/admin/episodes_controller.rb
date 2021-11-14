@@ -36,8 +36,9 @@ class Admin::EpisodesController < Admin::BaseController
 
   # PATCH/PUT /episodes/1 or /episodes/1.json
   def update
+    @episode.assign_attributes(episode_params)
     respond_to do |format|
-      if @episode.update(episode_params)
+      if @episode.save
         format.html { redirect_to [:admin, @episode], notice: "Episode was successfully updated." }
         format.json { render :show, status: :ok, location: [:admin, @episode] }
       else
@@ -64,6 +65,6 @@ class Admin::EpisodesController < Admin::BaseController
 
     # Only allow a list of trusted parameters through.
     def episode_params
-      params.require(:episode).permit(:onair_at)
+      params.require(:episode).permit(:onair_at, candidate_ids: [])
     end
 end

@@ -7,6 +7,12 @@
           li = message
 
   .field
-    = f.label :onair_at
-    = f.datetime_select :onair_at
+    .form-group
+      = f.label :onair_at
+      = f.datetime_select :onair_at
+    .form-group
+      = f.label :candidate_ids, '出演者'
+      = f.collection_check_boxes :candidate_ids, Candidate.all, :id, :name do |candidate|
+        br
+        = candidate.label { candidate.check_box + candidate.text }
   .actions = f.submit
