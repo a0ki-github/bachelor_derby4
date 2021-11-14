@@ -1,0 +1,18 @@
+= form_for [:admin, @episode] do |f|
+  - if @episode.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@episode.errors.count, 'error')} prohibited this episode from being saved:"
+      ul
+        - @episode.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    .form-group
+      = f.label :onair_at
+      = f.datetime_select :onair_at
+    .form-group
+      = f.label :candidate_ids, '出演者'
+      = f.collection_check_boxes :candidate_ids, Candidate.all, :id, :name do |candidate|
+        br
+        = candidate.label { candidate.check_box + candidate.text }
+  .actions = f.submit

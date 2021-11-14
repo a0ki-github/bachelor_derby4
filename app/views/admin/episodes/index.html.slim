@@ -1,0 +1,21 @@
+h1 Listing episodes
+
+table
+  thead
+    tr
+      th Onair at
+      th
+      th
+      th
+
+  tbody
+    - @episodes.each do |episode|
+      tr
+        td = episode.onair_at
+        td = link_to 'Show', [:admin, episode]
+        td = link_to 'Edit', edit_admin_episode_path(episode)
+        td = link_to 'Destroy', [:admin, episode], data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Episode', new_admin_episode_path
