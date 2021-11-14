@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'home#index'
   namespace :admin do
     resources :candidates
+    resources :episodes
   end
   namespace :api, format: 'json' do
     resources :sessions, only: %i(create destroy)

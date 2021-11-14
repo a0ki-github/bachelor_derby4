@@ -1,0 +1,12 @@
+= form_for [:admin, @episode] do |f|
+  - if @episode.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@episode.errors.count, 'error')} prohibited this episode from being saved:"
+      ul
+        - @episode.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :onair_at
+    = f.datetime_select :onair_at
+  .actions = f.submit
