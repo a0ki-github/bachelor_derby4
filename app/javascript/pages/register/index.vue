@@ -9,6 +9,7 @@
             :rules="`required|max:255|uniqueness:${existing_names}`"
           )
             label(for="name") ニックネーム
+            p.text-danger {{ errors[0] }}
             input(
               id="name"
               v-model="user.name"
@@ -18,7 +19,7 @@
               autocomplete="username"
               @input="fetchExistingNames"
             )
-            span.text-danger {{ errors[0] }}
+            p.small.text-danger Twitterのユーザー名を登録すると、上位者発表の際にメンションさせて頂きます。
         .form-group.my-2
           ValidationProvider(
             v-slot="{ errors }"
@@ -63,7 +64,7 @@ export default {
   data() {
     return {
       user: {
-        name: '',
+        name: '@',
         password: '',
         password_confirmation: ''
       },
