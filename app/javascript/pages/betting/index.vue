@@ -2,7 +2,8 @@
   #betting-form.container.w-75
     .h1.mb-5.text-center BET
     .h5.mb-5.text-center(v-if="authUser.current_candidate")
-      | 現在のBET： {{ summary(authUser.current_candidate) }}
+      | 現在のBET
+      h3 {{ summary(authUser.current_candidate) }}
     ValidationObserver(v-slot="{ handleSubmit }")
       .form-group
         ValidationProvider(
@@ -24,7 +25,10 @@
             label(
               :for="candidate.id"
               class="h5"
-            ) {{ summary(candidate) }}
+            )
+              | {{ candidate.name }}({{ candidate.age }})
+              br
+              | {{ candidate.title}}
             br
             TheYoutube(:youtube_url="candidate.youtube_url")
             br
