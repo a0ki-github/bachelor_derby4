@@ -1,6 +1,6 @@
 <template lang="pug">
   #top.container
-    h3 ルール
+    h3.mt-3 ルール
     ul
       li ユーザーは登録時に100Pが付与され、<br> バチェラー参加女性1名にBET。
       li BETするメンバーは変更可能だが、 <br> 番組開始(11/25 22:00)後は1回につき-10P

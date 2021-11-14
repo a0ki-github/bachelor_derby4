@@ -8,6 +8,7 @@
             v-slot="{ errors }"
             :rules="`required|max:255|uniqueness:${existing_names}`"
           )
+            span.text-danger {{ errors[0] }}
             label(for="name") ニックネーム
             input(
               id="name"
@@ -18,7 +19,10 @@
               autocomplete="username"
               @input="fetchExistingNames"
             )
-            span.text-danger {{ errors[0] }}
+            p.small.text-danger
+              | Twitterのユーザー名を登録すると、
+              br
+              | 上位者発表の際にメンションします。
         .form-group.my-2
           ValidationProvider(
             v-slot="{ errors }"
@@ -50,11 +54,16 @@
               autocomplete="new-password"
             )
             span.text-danger {{ errors[0] }}
-        button(
-          type="submit"
-          class="btn btn-primary my-2 d-block mx-auto"
-          @click.prevent="handleSubmit(createUser)"
-        ) 登録
+        .text-center
+          button(
+            type="submit"
+            class="btn btn-primary m-2"
+            @click.prevent="handleSubmit(createUser)"
+          ) 登録
+          router-link(
+            :to="{name: 'TopIndex'}"
+            class="btn btn-secondary m-2 d-inline-block mx-auto"
+          ) 戻る
 </template>
 
 <script>
@@ -63,7 +72,7 @@ export default {
   data() {
     return {
       user: {
-        name: '',
+        name: '@',
         password: '',
         password_confirmation: ''
       },
