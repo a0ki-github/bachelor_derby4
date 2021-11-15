@@ -47,6 +47,5 @@ export default {
     ...mapGetters('users', ['authUser']),
     ...mapGetters('candidates', ['summary'])
   }
-
 }
 </script>
