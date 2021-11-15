@@ -10,12 +10,13 @@
         class="navbar-nav"
       )
         li.nav-item.active
-          p.text-white.m-2 {{ authUser.name }}
-        li.nav-item.active(@click="handleLogoutUser")
-          router-link(
-            :to="{ name: 'TopIndex' }"
-            class="nav-link text-white"
-          ) ログアウト
+          p.text-white.m-2.d-inline-block {{ authUser.name }}
+          a(@click="handleLogoutUser")
+            router-link(
+              :to="{ name: 'TopIndex' }"
+              class="nav-link text-white"
+              @click="handleLogoutUser"
+            ) ログアウト
 </template>
 
 <script>
