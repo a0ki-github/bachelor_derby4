@@ -65,7 +65,8 @@ export default {
         await this.loginUser(this.user)
         this.$router.push({ name: 'TopIndex'})
       } catch(error) {
-        console.error()
+        alert('ニックネームかパスワードが間違っています')
+        console.log(error)
       }
     }
   }
