@@ -8,7 +8,6 @@
             v-slot="{ errors }"
             :rules="`required|max:255|uniqueness:${existing_names}`"
           )
-            span.text-danger {{ errors[0] }}
             label(for="name") ニックネーム
             input(
               id="name"
@@ -19,7 +18,8 @@
               autocomplete="username"
               @input="fetchExistingNames"
             )
-            p.small.text-danger
+            span.text-danger {{ errors[0] }}
+            p.small.text-info
               | Twitterのユーザー名を登録すると、
               br
               | 上位者発表の際にメンションします。
@@ -67,6 +67,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default {
   name: 'RegisterIndex',
   data() {
@@ -80,6 +81,7 @@ export default {
     }
   },
   methods: {
+    ...mapActions('users', ['loginUser']),
     async fetchExistingNames() {
       try {
         const res = await this.$axios.get('users/name_index')
@@ -91,7 +93,8 @@ export default {
     async createUser() {
       try {
         await this.$axios.post('users', { user: this.user })
-        this.$router.push('/login')
+        await this.loginUser({ name: this.user.name, password: this.user.password })
+        this.$router.push({ name: 'TopIndex' })
       } catch (error) {
         console.log(error)
       }
