@@ -46,6 +46,11 @@ export default {
   computed: {
     ...mapGetters('users', ['authUser']),
     ...mapGetters('candidates', ['summary'])
+  },
+  methods: {
+    fetchCandidatesBest3() {
+      
+    }
   }
 }
 </script>

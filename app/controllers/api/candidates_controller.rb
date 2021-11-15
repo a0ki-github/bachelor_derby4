@@ -5,4 +5,8 @@ class Api::CandidatesController < ApplicationController
     candidates = Candidate.all
     render json: candidates
   end
+
+  def best3
+    render json: Candidate.best3
+  end
 end

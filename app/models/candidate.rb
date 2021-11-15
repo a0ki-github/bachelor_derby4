@@ -7,4 +7,6 @@ class Candidate < ApplicationRecord
   validates :age, presence: true
   validates :title, presence: true, length: { maximum: 255 }
   validates :youtube_url, presence: true
+
+  scope :best3, -> { joins(:bettings).group("candidates.name").order(count_all: :desc).limit(3).count }
 end
