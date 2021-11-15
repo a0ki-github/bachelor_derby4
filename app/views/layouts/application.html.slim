@@ -8,5 +8,14 @@ html
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    script { async src="https://www.googletagmanager.com/gtag/js?id=G-0RT10TT1X9" }
+    javascript:
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-0RT10TT1X9');
+
   body
     = yield
