@@ -76,10 +76,16 @@ export default {
     ...mapActions('users', ['createBetting']),
     ...mapActions('candidates', ['fetchCandidates']),
     async handleCreateBetting() {
-      if (window.confirm('-10Pとなりますが、よろしいですか？')) {
+      if (new Date > new Date(2021, 10, 25, 22)) {
+        if (window.confirm('-10Pとなりますが、よろしいですか？')) {
+          this.createBetting(this.betting)
+          await this.$router.push({ name: 'TopIndex' })
+          //YouTube更新のため。（ドメインの異なるiframeは操作できないため、ページごとリロード）
+          window.location.reload()
+        }
+      } else {
         this.createBetting(this.betting)
         await this.$router.push({ name: 'TopIndex' })
-        //YouTube更新のため。（ドメインの異なるiframeは操作できないため、ページごとリロード）
         window.location.reload()
       }
     }
