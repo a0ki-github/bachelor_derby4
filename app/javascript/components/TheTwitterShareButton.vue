@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     renderURL() {
-      if (this.authUser) {
+      if (this.authUser?.current_candidate) {
         this.sentence = `${this.summary(this.authUser.current_candidate)}にBETしました！%0a`
       } else {
         this.sentence = "バチェラー4の優勝予想をして、人を見る目を試そう！%0a"
