@@ -1,5 +1,4 @@
 class Api::CandidatesController < ApplicationController
-  before_action :authenticate!, only: :index
 
   def index
     candidates = Candidate.all

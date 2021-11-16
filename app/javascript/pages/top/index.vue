@@ -40,14 +40,16 @@
     h3.my-3 みんなの予想ランキング
     template(v-for="candidate in candidates")
       p {{ summary(candidate) }} {{ candidate.votes }}票
+    TheTwitterShareButton
 </template>
 
 <script>
 import TheYoutube from '../../components/TheYoutube.vue'
+import TheTwitterShareButton from '../../components/TheTwitterShareButton.vue'
 import { mapActions, mapGetters } from 'vuex'
 export default {
   name: 'TopIndex',
-  components: { TheYoutube },
+  components: { TheYoutube, TheTwitterShareButton },
   data() {
     return {
       candidateRanking: {}

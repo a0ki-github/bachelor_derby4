@@ -12,6 +12,7 @@ import router from '../router'
 import store from '../store'
 import 'bootstrap/dist/css/bootstrap.css'
 import '../plugins/veevalidate'
+import '@fortawesome/fontawesome-free/js/all'
 
 Vue.prototype.$axios = axios
 
