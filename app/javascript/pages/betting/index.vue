@@ -13,7 +13,7 @@
           p.text-danger.my-3 {{ errors[0] }}
           div(
             v-for="candidate in except_current_candidates"
-            class="mb-5"
+            class="mb-5 text-center"
           )
             input(
               type="radio"

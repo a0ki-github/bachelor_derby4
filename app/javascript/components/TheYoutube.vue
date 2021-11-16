@@ -1,7 +1,7 @@
 <template lang="pug">
   iframe(
     :src="`https://www.youtube-nocookie.com/embed/${identifier(youtube_url)}`"
-    width="90%"
+    width="auto"
     flameboarder="0"
     allow="encrypted-media; fullscreen"
   )
