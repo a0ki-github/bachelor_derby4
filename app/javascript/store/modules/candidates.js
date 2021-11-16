@@ -7,7 +7,7 @@ const candidates = {
   },
   getters: {
     candidates: state => {
-      return state.candidates
+      return state.candidates.sort((first, second) => second.votes - first.votes )
     },
     identifier: (_state) => (url) => {
       return url.split('/').slice(-1)[0]
