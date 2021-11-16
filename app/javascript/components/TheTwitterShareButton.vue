@@ -3,7 +3,8 @@
     target="_blank"
     rel="nofollow"
     :href="url"
-  ) Twitter
+  )
+    i.fab.fa-twitter.fa-2x
 </template>
 
 <script>
