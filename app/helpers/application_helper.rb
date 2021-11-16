@@ -13,14 +13,14 @@ module ApplicationHelper
         title: :site,
         type: 'website',
         description: '「バチェラー4」優勝予想ゲーム',
-        url: "https://bachelor-derby4.herokuapp.com/",
-        image: image_url('logo.png'),
+        url: request.url,
+        image: image_url('twitter_card.png'),
         locale: 'ja_JP'
       },
       twitter: {
         card: 'summary_large_image',
         image: {
-          _: image_url('logo.png'),
+          _: image_url('twitter_card.png'),
           width: 300,
           height: 300
         }

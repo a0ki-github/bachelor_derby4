@@ -14,7 +14,7 @@ export default {
     return {
       url: '',
       sentence: '',
-      link: 'https://bachelor-derby4.herokuapp.com/%0a',
+      link: window.location.protocol + window.location.hostname,
       hashTags: 'バチェラー4,バチェラーダービー4'
     }
   },
@@ -28,11 +28,11 @@ export default {
   methods: {
     renderURL() {
       if (this.authUser?.current_candidate) {
-        this.sentence = `${this.summary(this.authUser.current_candidate)}にBETしました！%0a`
+        this.sentence = `${this.summary(this.authUser.current_candidate)}にBETしました！`
       } else {
-        this.sentence = "バチェラー4の優勝予想をして、人を見る目を試そう！%0a"
+        this.sentence = "バチェラー4の優勝予想をして、人を見る目を試そう！"
       }
-      this.url = `https://twitter.com/share?text=${this.sentence}&url=${this.link}&hashtags=${this.hashTags}`
+      this.url = `https://twitter.com/share?text=${this.sentence}%0a&url=${this.link}%0a&hashtags=${this.hashTags}`
     }
   }
 }
