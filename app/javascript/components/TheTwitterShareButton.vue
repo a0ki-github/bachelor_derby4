@@ -14,7 +14,7 @@ export default {
     return {
       url: '',
       sentence: '',
-      link: 'https://bachelor-derby4.herokuapp.com/%0a',
+      link: window.location.protocol + window.location.hostname,
       hashTags: 'バチェラー4,バチェラーダービー4'
     }
   },
