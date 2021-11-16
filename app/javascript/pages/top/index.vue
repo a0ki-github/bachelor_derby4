@@ -37,14 +37,14 @@
           :to="{ name: 'RegisterIndex' }"
           class="btn btn-dark m-3 router-link-active"
         ) ユーザー登録
-    h3.my-3 みんなの予想BEST3
-    div(v-for="(value, key) in candidateRanking")
-      p {{ key }}  {{ value }}票
+    h3.my-3 みんなの予想ランキング
+    template(v-for="candidate in candidates")
+      p {{ summary(candidate) }} {{ candidate.votes }}票
 </template>
 
 <script>
 import TheYoutube from '../../components/TheYoutube.vue'
-import { mapGetters } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 export default {
   name: 'TopIndex',
   components: { TheYoutube },
@@ -54,22 +54,13 @@ export default {
     }
   },
   created() {
-    this.fetchCandidatesRanking()
+    this.fetchCandidates()
   },
   computed: {
     ...mapGetters('users', ['authUser']),
-    ...mapGetters('candidates', ['summary'])
+    ...mapGetters('candidates', ['candidates', 'summary'])
   },
-  methods: {
-    async fetchCandidatesRanking() {
-      try {
-        const res = await this.$axios.get('candidates/ranking')
-        this.candidateRanking = res.data
-      } catch(error) {
-        console.log(error)
-      }
-    }
-  }
+  methods: {...mapActions('candidates', ['fetchCandidates'])}
 }
 </script>
 
