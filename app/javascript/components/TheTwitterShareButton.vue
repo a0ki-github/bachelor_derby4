@@ -14,7 +14,7 @@ export default {
     return {
       url: '',
       sentence: '',
-      link: window.location.protocol + window.location.hostname,
+      link: window.location.protocol + '//' + window.location.hostname,
       hashTags: 'バチェラー4,バチェラーダービー4'
     }
   },

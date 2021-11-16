@@ -22,7 +22,7 @@ module ApplicationHelper
         image: {
           _: image_url('twitter_card.png'),
           width: 300,
-          height: 300
+          height: 160
         }
       }
     }
