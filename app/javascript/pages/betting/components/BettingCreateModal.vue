@@ -12,6 +12,10 @@
                 @click="handleCloseModal"
               ) x
             .modal-body
+              p(
+                v-if="minusPointsTarget"
+                class="text-danger"
+              ) -10Pとなります。よろしいですか？
               TheYoutube(:youtube_url="candidate.youtube_url")
             .modal-footer
               button(
@@ -29,7 +33,7 @@
 
 <script>
 import TheYoutube from '../../../components/TheYoutube.vue'
-import { mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 export default {
   name: "BettingCreateModal",
   components: { TheYoutube },
@@ -55,24 +59,21 @@ export default {
       }
     }
   },
+  computed: {
+    ...mapGetters('users', ['authUser']),
+    minusPointsTarget() {
+      return new Date > new Date(2021, 10, 25, 22) && this.authUser.bettings_count >1
+    }
+  },
   methods: {
     ...mapActions('users', ['createBetting']),
     handleCloseModal() {
       this.$emit('close-modal')
     },
     async handleCreateBetting(candidate_id) {
-      if (new Date > new Date(2021, 10, 25, 22)) {
-        if (window.confirm('-10Pとなりますが、よろしいですか？')) {
-          this.createBetting(candidate_id)
-          await this.$router.push({ name: 'TopIndex' })
-          //YouTube更新のため。（ドメインの異なるiframeは操作できないため、ページごとリロード）
-          window.location.reload()
-        }
-      } else {
-        this.createBetting(candidate_id)
-        await this.$router.push({ name: 'TopIndex' })
-        window.location.reload()
-      }
+      this.createBetting(candidate_id)
+      await this.$router.push({ name: 'TopIndex' })
+      window.location.reload()
     }
   }
 }
