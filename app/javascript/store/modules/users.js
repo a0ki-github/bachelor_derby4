@@ -51,8 +51,8 @@ const users = {
       localStorage.removeItem('auth_token')
       axios.defaults.headers.common['Authorization'] = ''
     },
-    async createBetting({ commit }, betting) {
-      const res = await axios.post('bettings', { betting: betting })
+    async createBetting({ commit }, candidate_id) {
+      const res = await axios.post('bettings', { betting: { candidate_id: candidate_id } })
       commit('setCurrentCandidate', res.data)
     }
   }

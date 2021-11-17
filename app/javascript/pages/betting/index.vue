@@ -3,66 +3,43 @@
     .h1.mb-5.text-center BET
     .h5.mb-5.text-center(v-if="authUser.current_candidate")
       | 現在のBET
-      h3 {{ summary(authUser.current_candidate) }}
-    ValidationObserver(v-slot="{ handleSubmit }")
-      .form-group
-        ValidationProvider(
-            v-slot="{ errors }"
-            rules="required"
-          )
-          p.text-danger.my-3 {{ errors[0] }}
-          div(
-            v-for="candidate in except_current_candidates"
-            class="mb-5 text-center"
-          )
-            input(
-              type="radio"
-              name="候補者"
-              :id="candidate.id"
-              :value="candidate.id"
-              v-model="betting.candidate_id"
-            )
-            label(
-              :for="candidate.id"
-              class="h5"
-            )
-              | {{ candidate.name }}({{ candidate.age }})
-              br
-              | {{ candidate.title}}
-            br
-            TheYoutube(:youtube_url="candidate.youtube_url")
-            br
-          p.text-danger.my-3 {{ errors[0] }}
-      .text-center
-        button(
-          type="submit"
-          class="btn btn-primary my-2 d-block mx-auto"
-          @click.prevent="handleSubmit(handleCreateBetting)"
-        ) BETする
-        router-link(
-          :to="{name: 'TopIndex'}"
-          class="btn btn-secondary m-2"
-        ) 戻る
+      h3.mb-5 {{ summary(authUser.current_candidate) }}
+    template(v-for="candidate in except_current_candidates")
+      .mt-5(@click="handleShowBettingCreateModal(candidate)")
+        h5.mt-5 {{ summary(candidate) }}
+        img(
+          :src="`//i.ytimg.com/vi/${identifier(candidate.youtube_url)}/mqdefault.jpg`"
+          width="100%"
+        )
+    transition(name="fade")
+      BettingCreateModal(
+        v-if="isVisibleBettingCreateModal"
+        :candidate="bettingCandidate"
+        @close-modal="handleCloseBettingCreateModal"
+      )
 </template>
 
 <script>
 import TheYoutube from '../../components/TheYoutube.vue'
+import BettingCreateModal from './components/BettingCreateModal.vue'
 import { mapActions, mapGetters } from 'vuex'
 export default {
   name: 'BettingIndex',
-  components: { TheYoutube },
+  components: { TheYoutube, BettingCreateModal },
   data() {
     return {
       betting: {
         candidate_id: ''
-      }
+      },
+      isVisibleBettingCreateModal: false,
+      bettingCandidate: {}
     }
   },
   created() {
     this.fetchCandidates();
   },
   computed: {
-    ...mapGetters('candidates', ['candidates', 'summary']),
+    ...mapGetters('candidates', ['candidates', 'summary', 'identifier']),
     ...mapGetters('users', ['authUser']),
     except_current_candidates() {
       if (this.authUser.current_candidate) {
@@ -73,22 +50,23 @@ export default {
     }
   },
   methods: {
-    ...mapActions('users', ['createBetting']),
     ...mapActions('candidates', ['fetchCandidates']),
-    async handleCreateBetting() {
-      if (new Date > new Date(2021, 10, 25, 22)) {
-        if (window.confirm('-10Pとなりますが、よろしいですか？')) {
-          this.createBetting(this.betting)
-          await this.$router.push({ name: 'TopIndex' })
-          //YouTube更新のため。（ドメインの異なるiframeは操作できないため、ページごとリロード）
-          window.location.reload()
-        }
-      } else {
-        this.createBetting(this.betting)
-        await this.$router.push({ name: 'TopIndex' })
-        window.location.reload()
-      }
+    handleShowBettingCreateModal(candidate) {
+      this.isVisibleBettingCreateModal = true;
+      this.bettingCandidate = candidate;
+    },
+    handleCloseBettingCreateModal() {
+      this.isVisibleBettingCreateModal = false;
     }
   }
 }
 </script>
+
+<style scoped>
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+  }
+  .fade-enter, .fade-leave-to {
+    opacity: 0;
+  }
+</style>

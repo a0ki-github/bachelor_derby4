@@ -28,6 +28,10 @@ class User < ApplicationRecord
     return points
   end
 
+  def bettings_count
+    bettings.count
+  end
+
   private
 
   def after(episode)
