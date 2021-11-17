@@ -4,6 +4,8 @@ import TopIndex from '../pages/top/index.vue'
 import LoginIndex from '../pages/login/index.vue'
 import RegisterIndex from '../pages/register/index.vue'
 import BettingIndex from '../pages/betting/index.vue'
+import TermsIndex from '../pages/terms/index.vue'
+import PrivacyPolicyIndex from '../pages/privacy_policy/index.vue'
 import store from '../store'
 
 Vue.config.productionTip = false
@@ -32,6 +34,16 @@ const router = new VueRouter({
       component: BettingIndex,
       name: 'BettingIndex',
       meta: { requireAuth: true }
+    },
+    {
+      path: '/terms',
+      component: TermsIndex,
+      name: 'TermsIndex'
+    },
+    {
+      path: '/privacy_policy',
+      component: PrivacyPolicyIndex,
+      name: 'PrivacyPolicyIndex'
     }
   ]
 })
