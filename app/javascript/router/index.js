@@ -48,7 +48,7 @@ const router = new VueRouter({
   ]
 })
 
-router.beforeEach((to, from, next) =>{
+router.beforeEach((to, _from, next) =>{
   store.dispatch('users/fetchAuthUser').then((authUser) => {
     if (to.matched.some(record => record.meta.requireAuth) && !authUser) {
       next({ name: 'LoginIndex' });
@@ -56,7 +56,7 @@ router.beforeEach((to, from, next) =>{
       next();
     }
   }),
-  history.pushState(from, '')
+  history.pushState(null, '', null)
 })
 
 export default router
