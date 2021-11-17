@@ -50,11 +50,6 @@ import { mapActions, mapGetters } from 'vuex'
 export default {
   name: 'TopIndex',
   components: { TheYoutube, TheTwitterShareButton },
-  data() {
-    return {
-      candidateRanking: {}
-    }
-  },
   created() {
     this.fetchCandidates()
   },
