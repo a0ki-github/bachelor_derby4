@@ -20,16 +20,6 @@ const router = new VueRouter({
       name: "TopIndex" 
     },
     {
-      path: '/register',
-      component: RegisterIndex,
-      name: 'RegisterIndex'
-    },
-    {
-      path: '/login',
-      component: LoginIndex,
-      name: 'LoginIndex'
-    },
-    {
       path: '/bettings',
       component: BettingIndex,
       name: 'BettingIndex',
