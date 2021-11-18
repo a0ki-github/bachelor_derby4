@@ -18,7 +18,11 @@ class User < ApplicationRecord
     points = 100
 
     # 初回放送以降にBETを変更したユーザーに対し減点
-    points -= (bettings.count - 1) * 10 if after(Episode.nth(1))
+    if bettings.before_onair.any?
+      points -= (bettings.after_onair.count) * 10
+    else
+      points -= (bettings.after_onair.count - 1) * 10
+    end
 
     # 各放送回終了時、脱落した候補者にBETしているor誰にもBETしていないユーザーに対し減点
     [*1..Episode.count - 1].each do |n|
