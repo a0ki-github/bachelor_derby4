@@ -20,9 +20,11 @@
             )
             span.text-danger {{ errors[0] }}
             p.small.text-info
-              | Twitterのユーザー名を登録すると、
+              | Twitterユーザー名を登録すると
               br
-              | 上位者発表の際にメンションします。
+              | 開発者の上位者発表ツイートで
+              br
+              | メンションされます。
         .form-group.my-2
           ValidationProvider(
             v-slot="{ errors }"
