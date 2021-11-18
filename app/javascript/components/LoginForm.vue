@@ -44,10 +44,6 @@
             class="btn btn-primary m-2"
             @click.prevent="handleSubmit(handleLoginUser)"
           ) ログイン
-          router-link(
-            :to="{ name: 'TopIndex' }"
-            class="btn btn-secondary m-2"
-          ) 戻る
 </template>
 
 <script>

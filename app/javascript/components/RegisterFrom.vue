@@ -67,10 +67,6 @@
             class="btn btn-primary m-2"
             @click.prevent="handleSubmit(createUser)"
           ) 登録
-          router-link(
-            :to="{name: 'TopIndex'}"
-            class="btn btn-secondary m-2 d-inline-block mx-auto"
-          ) 戻る
 </template>
 
 <script>
