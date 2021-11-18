@@ -4,6 +4,9 @@ Rails.application.routes.draw do
     resources :candidates
     resources :episodes
     resources :users
+    get '/login', to: 'sessions#new'
+    post '/login', to: 'sessions#create'
+    delete '/logout', to: 'sessions#destroy'
   end
   namespace :api, format: 'json' do
     resources :sessions, only: %i(create destroy)
