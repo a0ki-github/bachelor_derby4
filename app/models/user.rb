@@ -22,7 +22,7 @@ class User < ApplicationRecord
     # 初回放送以降にBETを変更したユーザーに対し減点
     if bettings.before_onair.any?
       points -= (bettings.after_onair.count) * 10
-    else
+    elsif bettings.after_onair.any?
       points -= (bettings.after_onair.count - 1) * 10
     end
 
