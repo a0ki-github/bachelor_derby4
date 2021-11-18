@@ -11,7 +11,7 @@ class Api::UsersController < ApplicationController
   end
 
   def me
-    render json: @current_user, methods: [:current_candidate, :points, :bettings_count]
+    render json: current_user, methods: [:current_candidate, :points, :bettings_count]
   end
 
   def name_index

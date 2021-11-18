@@ -39,7 +39,7 @@ const router = new VueRouter({
 router.beforeEach((to, _from, next) =>{
   store.dispatch('users/fetchAuthUser').then((authUser) => {
     if (to.matched.some(record => record.meta.requireAuth) && !authUser) {
-      next({ name: 'LoginIndex' });
+      next({ name: 'TopIndex' });
     } else {
       next();
     }

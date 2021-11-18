@@ -53,7 +53,7 @@
 import { mapActions } from 'vuex'
 
 export default {
-  name: 'LoginIndex',
+  name: 'LoginForm',
   data() {
     return {
       user: {
