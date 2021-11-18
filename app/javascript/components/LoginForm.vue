@@ -9,14 +9,17 @@
             rules="required|max:255"
           )
             label(for="name") ニックネーム
-            input(
-              id="name"
-              v-model="user.name"
-              type="text"
-              name="ニックネーム"
-              class="form-control"
-              autocomplete="username"
-            )
+            .input-group
+              .input-group-prepend
+                .input-group-text @
+              input(
+                id="name"
+                v-model="user.name"
+                type="text"
+                name="ニックネーム"
+                class="form-control"
+                autocomplete="username"
+              )
             span.text-danger {{ errors[0] }}
         .form-group.my-2
           ValidationProvider(

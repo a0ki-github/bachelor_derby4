@@ -9,15 +9,18 @@
             :rules="`required|max:255|uniqueness:${existing_names}`"
           )
             label(for="name") ニックネーム
-            input(
-              id="name"
-              v-model="user.name"
-              type="text"
-              name="ニックネーム"
-              class="form-control"
-              autocomplete="username"
-              @input="fetchExistingNames"
-            )
+            .input-group
+              .input-group-prepend
+                .input-group-text @
+              input(
+                id="name"
+                v-model="user.name"
+                type="text"
+                name="ニックネーム"
+                class="form-control"
+                autocomplete="username"
+                @input="fetchExistingNames"
+              )
             span.text-danger {{ errors[0] }}
             p.small.text-info
               | Twitterユーザー名を登録すると
@@ -76,7 +79,7 @@ export default {
   data() {
     return {
       user: {
-        name: '@',
+        name: '',
         password: '',
         password_confirmation: ''
       },
