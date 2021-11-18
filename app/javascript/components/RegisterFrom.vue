@@ -20,9 +20,11 @@
             )
             span.text-danger {{ errors[0] }}
             p.small.text-info
-              | Twitterのユーザー名を登録すると、
+              | Twitterユーザー名を登録すると
               br
-              | 上位者発表の際にメンションします。
+              | 開発者の上位者発表ツイートで
+              br
+              | メンションされます。
         .form-group.my-2
           ValidationProvider(
             v-slot="{ errors }"
@@ -55,15 +57,16 @@
             )
             span.text-danger {{ errors[0] }}
         .text-center
+          a(
+            role="button"
+            class="d-block"
+            @click="handleSwitchForm"
+          ) ログイン＞
           button(
             type="submit"
             class="btn btn-primary m-2"
             @click.prevent="handleSubmit(createUser)"
           ) 登録
-          router-link(
-            :to="{name: 'TopIndex'}"
-            class="btn btn-secondary m-2 d-inline-block mx-auto"
-          ) 戻る
 </template>
 
 <script>
@@ -82,6 +85,9 @@ export default {
   },
   methods: {
     ...mapActions('users', ['loginUser']),
+    handleSwitchForm() {
+      this.$emit('switch-form')
+    },
     async fetchExistingNames() {
       try {
         const res = await this.$axios.get('users/name_index')
@@ -94,7 +100,7 @@ export default {
       try {
         await this.$axios.post('users', { user: this.user })
         await this.loginUser({ name: this.user.name, password: this.user.password })
-        this.$router.push({ name: 'TopIndex' })
+        this.$router.push({ name: 'BettingIndex' })
       } catch (error) {
         console.log(error)
       }

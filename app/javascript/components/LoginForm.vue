@@ -34,15 +34,16 @@
             )
             span.text-danger {{ errors[0] }}
         .text-center
+          a(
+            role="button"
+            class="d-block"
+            @click="handleSwitchForm"
+          ) 新規登録＞
           button(
             type="submit"
             class="btn btn-primary m-2"
             @click.prevent="handleSubmit(handleLoginUser)"
           ) ログイン
-          router-link(
-            :to="{ name: 'TopIndex' }"
-            class="btn btn-secondary m-2"
-          ) 戻る
 </template>
 
 <script>
@@ -60,10 +61,12 @@ export default {
   },
   methods: {
     ...mapActions('users', ['loginUser']),
+    handleSwitchForm() {
+      this.$emit('switch-form')
+    },
     async handleLoginUser() {
       try {
         await this.loginUser(this.user)
-        this.$router.push({ name: 'TopIndex'})
       } catch(error) {
         alert('ニックネームかパスワードが間違っています')
         console.log(error)
