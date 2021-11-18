@@ -1,8 +1,9 @@
 <template lang="pug">
   footer.text-center.mt-auto
     a(
-      @click="handleShowContactModal"
+      role="button"
       class="text-decoration-none text-muted"
+      @click="handleShowContactModal"
     )
       small お問い合わせ
     router-link(

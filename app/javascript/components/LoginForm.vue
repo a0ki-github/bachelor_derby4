@@ -35,7 +35,8 @@
             span.text-danger {{ errors[0] }}
         .text-center
           a(
-            class="d-block pe-auto"
+            role="button"
+            class="d-block"
             @click="handleSwitchForm"
           ) 新規登録＞
           button(

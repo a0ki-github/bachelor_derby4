@@ -58,6 +58,7 @@
             span.text-danger {{ errors[0] }}
         .text-center
           a(
+            role="button"
             class="d-block"
             @click="handleSwitchForm"
           ) ログイン＞
