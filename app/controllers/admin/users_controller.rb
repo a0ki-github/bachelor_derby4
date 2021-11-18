@@ -48,13 +48,13 @@ class Admin::UsersController < Admin::BaseController
   end
 
   # DELETE /users/1 or /users/1.json
-  def destroy
-    @user.destroy
-    respond_to do |format|
-      format.html { redirect_to admin_users_url, notice: "User was successfully destroyed." }
-      format.json { head :no_content }
-    end
-  end
+  # def destroy
+  #   @user.destroy
+  #   respond_to do |format|
+  #     format.html { redirect_to admin_users_url, notice: "User was successfully destroyed." }
+  #     format.json { head :no_content }
+  #   end
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.

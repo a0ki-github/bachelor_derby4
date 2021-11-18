@@ -11,5 +11,5 @@
     = f.text_field :name
   .field
     = f.label :role
-    = f.number_field :role
+    = f.select :role, User.roles.keys
   .actions = f.submit

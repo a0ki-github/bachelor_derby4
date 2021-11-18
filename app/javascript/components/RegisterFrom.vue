@@ -75,7 +75,7 @@
 <script>
 import { mapActions } from 'vuex'
 export default {
-  name: 'RegisterIndex',
+  name: 'RegisterForm',
   data() {
     return {
       user: {
