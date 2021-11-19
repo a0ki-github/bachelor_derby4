@@ -13,10 +13,16 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 export default {
+  created() {
+    this.fetchCandidates()
+  },
   computed: {
     ...mapGetters('candidates', ['candidates', 'summary'])
+  },
+  methods: {
+    ...mapActions('candidates', ['fetchCandidates'])
   }
 }
 </script>

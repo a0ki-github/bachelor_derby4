@@ -34,7 +34,7 @@ import TheVotes from '../../components/TheVotes.vue'
 import UserForms from '../../components/UserForms.vue'
 import TheYoutube from '../../components/TheYoutube.vue'
 import TheTwitterShareButton from '../../components/TheTwitterShareButton.vue'
-import { mapActions, mapGetters } from 'vuex'
+import { mapGetters } from 'vuex'
 export default {
   name: 'TopIndex',
   components: {
@@ -44,15 +44,8 @@ export default {
     TheYoutube,
     TheTwitterShareButton
   },
-  created() {
-    this.fetchCandidates()
-  },
   computed: {
-    ...mapGetters('users', ['authUser']),
-    ...mapGetters('candidates', ['candidates', 'summary'])
-  },
-  methods: {
-    ...mapActions('candidates', ['fetchCandidates'])
+    ...mapGetters('users', ['authUser'])
   }
 }
 </script>
