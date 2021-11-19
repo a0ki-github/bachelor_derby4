@@ -27,8 +27,9 @@ export default {
   },
   methods: {
     ...mapActions('users', ['logoutUser']),
-    handleLogoutUser() {
-      this.logoutUser()
+    async handleLogoutUser() {
+      await this.logoutUser()
+      alert('ログアウトしました')
     }
   }
 }

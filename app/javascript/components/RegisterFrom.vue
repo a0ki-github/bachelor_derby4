@@ -100,6 +100,7 @@ export default {
         await this.$axios.post('users', { user: this.user })
         await this.loginUser({ name: this.user.name, password: this.user.password })
         this.$router.push({ name: 'BettingIndex' })
+        alert('ユーザー登録おめでとうございます！さっそくBETしていきましょう！')
       } catch (error) {
         console.log(error)
       }

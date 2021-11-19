@@ -70,6 +70,7 @@ export default {
     async handleLoginUser() {
       try {
         await this.loginUser(this.user)
+        alert('ログインに成功しました')
       } catch(error) {
         alert('ニックネームかパスワードが間違っています')
         console.log(error)
