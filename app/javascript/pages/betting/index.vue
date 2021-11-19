@@ -1,12 +1,15 @@
 <template lang="pug">
-  #betting-form.container.w-75
-    .h1.mb-5.text-center.fw-bold BET
-    .h5.mb-5.text-center(v-if="authUser.current_candidate")
-      | 現在のBET
-      h3.mb-5 {{ summary(authUser.current_candidate) }}
+  #betting-form.container.w-75.text-center
+    .mb-5.fw-bold.text-white(style="font-size: 72px")
+      | BET
+    .card.pb-3(v-if="authUser.current_candidate")
+      img(src="/assets/betting.svg")
+      .card-title 現在のBET
+      h2.card-text.fw-bold {{ summary(authUser.current_candidate) }}
+    p.text-white.mt-5 新たにBETする候補者を選択してください
     template(v-for="candidate in except_current_candidates")
-      .mt-5(@click="handleShowBettingCreateModal(candidate)")
-        h5.mt-5 {{ summary(candidate) }}
+      .text-white.py-5(@click="handleShowBettingCreateModal(candidate)")
+        h2.card-title.fw-bold {{ summary(candidate) }}
         img(
           :src="`//i.ytimg.com/vi/${identifier(candidate.youtube_url)}/mqdefault.jpg`"
           width="100%"

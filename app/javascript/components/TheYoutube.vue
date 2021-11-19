@@ -1,10 +1,10 @@
 <template lang="pug">
-  iframe(
-    :src="`https://www.youtube-nocookie.com/embed/${identifier(youtube_url)}`"
-    flameboarder="0"
-    allow="encrypted-media; fullscreen"
-
-  )
+  #youtube.ratio.ratio-16x9.m-auto.w-75
+    iframe(
+      :src="`https://www.youtube-nocookie.com/embed/${identifier(youtube_url)}`"
+      flameboarder="0"
+      allow="encrypted-media; fullscreen"
+    )
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 <template lang="pug">
-  .d-flex.flex-column.min-vh-100
+  .d-flex.flex-column.min-vh-100.bg-dark
     TheHeader
     router-view
     TheFooter
