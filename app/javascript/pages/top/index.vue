@@ -1,9 +1,13 @@
 <template lang="pug">
   #top.container
-    TheRules
-    TheStatus(v-if="authUser")      
-    TheVotes
-    UserForms
+    template(v-if="authUser")
+      TheStatus
+      TheVotes
+      TheRules
+    template(v-else)
+      TheRules
+      TheVotes
+      UserForms
     TheTwitterShareButton
 </template>
 

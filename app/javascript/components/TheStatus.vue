@@ -1,5 +1,5 @@
 <template lang="pug">
-  #status
+  #status.text-center
     template(v-if="authUser.current_candidate")
       .d-inline-block.m-4
         | 現在のポイント
