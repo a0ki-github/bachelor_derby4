@@ -6,11 +6,6 @@
           .modal-content
             .modal-header
               h4.modal-title {{ candidate.name }}
-              button(
-                type="button"
-                class="btn btn-danger"
-                @click="handleCloseModal"
-              ) x
             .modal-body
               p(
                 v-if="minusPointsTarget"
@@ -20,7 +15,7 @@
             .modal-footer
               button(
                 type="button"
-                class="btn btn-success"
+                class="btn btn-danger"
                 @click="handleCreateBetting(candidate.id)"
               ) BET
               button(

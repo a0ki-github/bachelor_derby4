@@ -12,7 +12,7 @@
     br
     router-link(
       :to="{ name: 'BettingIndex' }"
-      class="btn btn-danger m-3 router-link-active"
+      class="btn btn-danger btn-lg m-3 router-link-active"
     ) BET画面へ
 </template>
 

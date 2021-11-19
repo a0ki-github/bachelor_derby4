@@ -1,9 +1,10 @@
 <template lang="pug">
-  #youtube.ratio.ratio-16x9.m-auto.w-75
+  #youtube
     iframe(
       :src="`https://www.youtube-nocookie.com/embed/${identifier(youtube_url)}`"
       flameboarder="0"
       allow="encrypted-media; fullscreen"
+      class="d-block m-auto"
     )
 </template>
 
