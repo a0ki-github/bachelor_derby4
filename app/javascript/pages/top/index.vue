@@ -5,6 +5,7 @@
       TheVotes
       TheRules
     template(v-else)
+      TopImage
       TheRules
       TheVotes
       UserForms
@@ -12,6 +13,7 @@
 </template>
 
 <script>
+import TopImage from '../../components/TopImage.vue'
 import TheRules from '../../components/TheRules.vue'
 import TheVotes from '../../components/TheVotes.vue'
 import UserForms from '../../components/UserForms.vue'
@@ -21,6 +23,7 @@ import { mapGetters } from 'vuex'
 export default {
   name: 'TopIndex',
   components: {
+    TopImage,
     TheRules,
     TheVotes,
     UserForms,

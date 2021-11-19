@@ -1,5 +1,6 @@
 <template lang="pug">
   #votes
+    h1.text-center.fw-bold.text-white 得票数ランキング
     .row.row-cols-1.row-cols-md-2
       .card.h-100.d-block.m-auto
         img(
@@ -7,7 +8,6 @@
           src="/assets/votes.svg"
         )
         .card-body.text-center.h-75
-          h3.card-title.fw-bold 得票数ランキング
           template(v-for="candidate in candidates")
             p {{ summary(candidate) }} {{ candidate.votes }}票
 </template>
