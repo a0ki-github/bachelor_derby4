@@ -1,10 +1,11 @@
 <template lang="pug">
-  a(
-    target="_blank"
-    rel="nofollow"
-    :href="url"
-  )
-    i.fab.fa-twitter.fa-2x
+  .text-center.my-4
+    a(
+      target="_blank"
+      rel="nofollow"
+      :href="url"
+    )
+      i.fab.fa-twitter.fa-2x
 </template>
 
 <script>
