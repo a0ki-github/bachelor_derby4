@@ -1,13 +1,58 @@
 <template lang="pug">
-  #top.container.text-center
-    .m-auto
-      h3.mt-3 ルール
-      ul.text-start
-        li ユーザーは登録時に100Pが付与され、バチェラー参加女性1名にBET。
-        li BETするメンバーは変更可能だが、番組開始(11/25 22:00)後は1回につき-10P
-        li 各放送日時点で脱落メンバーにBETしているユーザー、または誰にもBETしていないユーザーには-20P
-        li 番組終了時に得点上位者を発表
-    .m-auto
+  #top.container
+    #rules.my-5
+      h1.text-center Rules
+      .row.row-cols-1.row-cols-sm-2.row-cols-md-2.row-cols-lg-4.g-4
+        .col
+          .card.h-100
+            img(
+              class="card-img-top h-50"
+              src="/assets/coins.svg"
+            )
+            .card-body.h-50
+              p.card-title.fw-bold 1、スタート
+              p.card-text 持ち点として100P付与されます。
+        .col
+          .card.h-100
+            img(
+              class="card-img-top h-50"
+              src="/assets/betting.svg"
+            )
+            .card-body.h-50
+              p.card-title.fw-bold 2、BET
+              p.card-text
+                | ユーザーはバチェラー参加女性1名にBETできます。
+                br
+                | 後から変更することも可能です。
+        .col
+          .card.h-100
+            img(
+              class="card-img-top h-50"
+              src="/assets/chilling.svg"
+            )
+            .card-body.h-50
+              p.card-title.fw-bold 3、減点法
+              p.card-text
+                | 初回放送以降にBETを変更すると-10P、BETしたメンバーが脱落すると-20Pです。
+                br
+                | （つまり先見の明があるユーザーにとって、このアプリは放置ゲームとなります）
+        .col
+          .card.h-100
+            img(
+              class="card-img-top h-50"
+              src="/assets/winners.svg"
+            )
+            .card-body.h-50
+              p.card-title.fw-bold 4、結果発表
+              p.card-text
+                | 番組終了後、開発者の
+                a(
+                  href="https://twitter.com/aoki_engineer"
+                  target="_blank"
+                ) @aoki_engineer
+                | から得点上位者の発表をします。
+
+    div.my-5
       template(v-if="authUser")
         template(v-if="authUser.current_candidate")
           .d-inline-block.m-4
@@ -73,9 +118,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-  #top {
-    max-width: 450px;
-  }
-</style>
