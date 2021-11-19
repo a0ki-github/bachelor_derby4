@@ -1,5 +1,6 @@
 <template lang="pug">
-  #status.text-center
+  #status.text-center.my-5
+    h1.text-center.fw-bold 成績
     template(v-if="authUser.current_candidate")
       .d-inline-block.m-4
         | 現在のポイント
@@ -18,7 +19,7 @@
     router-link(
       :to="{ name: 'BettingIndex' }"
       class="btn btn-dark m-3 router-link-active"
-    ) BET
+    ) BET画面へ
 </template>
 
 <script>

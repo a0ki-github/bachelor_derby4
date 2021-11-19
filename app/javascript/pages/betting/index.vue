@@ -1,6 +1,6 @@
 <template lang="pug">
   #betting-form.container.w-75
-    .h1.mb-5.text-center BET
+    .h1.mb-5.text-center.fw-bold BET
     .h5.mb-5.text-center(v-if="authUser.current_candidate")
       | 現在のBET
       h3.mb-5 {{ summary(authUser.current_candidate) }}
