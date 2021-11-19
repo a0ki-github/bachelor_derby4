@@ -9,17 +9,17 @@
             .card-body
               .card-title 現在のポイント
               h1.card-text.fw-bold {{ authUser.points }}P
+      TheYoutube(:youtube_url="authUser.current_candidate.youtube_url")
       .text-white
         span 現在のBET
         h3.fw-bold
           | {{ authUser.current_candidate.name }} ({{authUser.current_candidate.age}})
           br
           | {{ authUser.current_candidate.title }}
-      TheYoutube(:youtube_url="authUser.current_candidate.youtube_url")
     template(v-else)
       p まだBETはありません。
     .my-5
-      img.w-50(src="/assets/betting.svg")
+      img.w-25(src="/assets/betting.svg")
       br
       router-link(
         :to="{ name: 'BettingIndex' }"

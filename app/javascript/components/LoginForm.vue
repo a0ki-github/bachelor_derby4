@@ -71,6 +71,7 @@ export default {
       try {
         await this.loginUser(this.user)
         alert('ログインに成功しました')
+        scrollTo(0, 0)
       } catch(error) {
         alert('ニックネームかパスワードが間違っています')
         console.log(error)
