@@ -1,7 +1,7 @@
 <template lang="pug">
   #rules.my-5
     h1.text-center Rules
-    .row.row-cols-1.row-cols-sm-2.row-cols-md-2.row-cols-lg-4.g-4
+    .row.row-cols-1.row-cols-md-2.row-cols-lg-4.g-4
       .col
         .card.h-100
           img(
