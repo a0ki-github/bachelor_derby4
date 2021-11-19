@@ -23,20 +23,15 @@
           :to="{ name: 'BettingIndex' }"
           class="btn btn-dark m-3 router-link-active"
         ) BET
-      template(v-else)
-        template(v-if="userRegisterd")
-          LoginForm(@switch-form="switchForm")
-        template(v-else)
-          RegisterForm(@switch-form="switchForm")
     TheVotes
+    UserForms
     TheTwitterShareButton
 </template>
 
 <script>
 import TheRules from '../../components/TheRules.vue'
 import TheVotes from '../../components/TheVotes.vue'
-import RegisterForm from '../../components/RegisterFrom.vue'
-import LoginForm from '../../components/LoginForm.vue'
+import UserForms from '../../components/UserForms.vue'
 import TheYoutube from '../../components/TheYoutube.vue'
 import TheTwitterShareButton from '../../components/TheTwitterShareButton.vue'
 import { mapActions, mapGetters } from 'vuex'
@@ -45,15 +40,9 @@ export default {
   components: {
     TheRules,
     TheVotes,
-    RegisterForm,
-    LoginForm,
+    UserForms,
     TheYoutube,
     TheTwitterShareButton
-  },
-  data() {
-    return {
-      userRegisterd: false
-    }
   },
   created() {
     this.fetchCandidates()
@@ -63,10 +52,7 @@ export default {
     ...mapGetters('candidates', ['candidates', 'summary'])
   },
   methods: {
-    ...mapActions('candidates', ['fetchCandidates']),
-    switchForm() {
-      this.userRegisterd = !this.userRegisterd
-    }
+    ...mapActions('candidates', ['fetchCandidates'])
   }
 }
 </script>
