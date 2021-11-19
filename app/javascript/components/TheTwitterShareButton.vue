@@ -5,7 +5,7 @@
       rel="nofollow"
       :href="url"
     )
-      i.fab.fa-twitter.fa-2x
+      i.fab.fa-twitter.fa-2x.text-danger
 </template>
 
 <script>
