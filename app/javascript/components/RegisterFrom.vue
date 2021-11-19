@@ -1,5 +1,5 @@
 <template lang="pug">
-  #register-form.container.w-75
+  #register-form.container.w-75.m-auto
     .h3.mb-3.text-center ユーザー登録
     ValidationObserver(v-slot="{ handleSubmit }")
       form

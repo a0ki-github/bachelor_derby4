@@ -1,6 +1,6 @@
 <template lang="pug">
   #user-forms
-    .card.h-100
+    .card(style="height: 400px")
       template(v-if="userRegisterd")
         LoginForm(
           @switch-form="switchForm")
