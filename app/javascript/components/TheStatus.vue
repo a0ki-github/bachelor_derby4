@@ -20,6 +20,7 @@
       p まだBETはありません。
     .my-5
       img.w-50(src="/assets/betting.svg")
+      br
       router-link(
         :to="{ name: 'BettingIndex' }"
         class="btn btn-danger btn-lg m-3 router-link-active"
