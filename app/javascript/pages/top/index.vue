@@ -28,22 +28,13 @@
           LoginForm(@switch-form="switchForm")
         template(v-else)
           RegisterForm(@switch-form="switchForm")
-    #votes
-      .row.row-cols-1.row-cols-md-2
-        .card.h-100.d-block.m-auto
-          img(
-            class="card-img-top h-25"
-            src="/assets/votes.svg"
-          )
-          .card-body.text-center.h-75
-            h3.card-title.fw-bold 得票数ランキング
-            template(v-for="candidate in candidates")
-              p {{ summary(candidate) }} {{ candidate.votes }}票
+    TheVotes
     TheTwitterShareButton
 </template>
 
 <script>
 import TheRules from '../../components/TheRules.vue'
+import TheVotes from '../../components/TheVotes.vue'
 import RegisterForm from '../../components/RegisterFrom.vue'
 import LoginForm from '../../components/LoginForm.vue'
 import TheYoutube from '../../components/TheYoutube.vue'
@@ -53,6 +44,7 @@ export default {
   name: 'TopIndex',
   components: {
     TheRules,
+    TheVotes,
     RegisterForm,
     LoginForm,
     TheYoutube,
