@@ -1,12 +1,14 @@
 <template lang="pug">
   #status.text-center.my-5
     h1.text-center.fw-bold.text-white 成績
+    img.w-50(src="/assets/status.svg")
     template(v-if="authUser.current_candidate")
-      .row.row-cols-3
-        .card.my-5.m-auto
-          .card-body
-            .card-title 現在のポイント
-            h1.card-text.fw-bold {{ authUser.points }}P
+      .row.row-cols-1.row-cols-md-2
+        .col.m-auto
+          .card.my-5
+            .card-body
+              .card-title 現在のポイント
+              h1.card-text.fw-bold {{ authUser.points }}P
       .text-white
         span 現在のBET
         h3.fw-bold
@@ -15,12 +17,13 @@
           | {{ authUser.current_candidate.title }}
       TheYoutube(:youtube_url="authUser.current_candidate.youtube_url")
     template(v-else)
-      span まだBETはありません。
-    br
-    router-link(
-      :to="{ name: 'BettingIndex' }"
-      class="btn btn-danger btn-lg m-3 router-link-active"
-    ) BET画面へ
+      p まだBETはありません。
+    .my-5
+      img.w-50(src="/assets/betting.svg")
+      router-link(
+        :to="{ name: 'BettingIndex' }"
+        class="btn btn-danger btn-lg m-3 router-link-active"
+      ) BET画面へ
 </template>
 
 <script>
