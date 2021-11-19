@@ -7,6 +7,7 @@
     template(v-else)
       TopImage
       TheRules
+      StartButton
       TheVotes
       UserForms
     TheTwitterShareButton
@@ -16,6 +17,7 @@
 import TopImage from '../../components/TopImage.vue'
 import TheRules from '../../components/TheRules.vue'
 import TheVotes from '../../components/TheVotes.vue'
+import StartButton from '../../components/StartButton.vue'
 import UserForms from '../../components/UserForms.vue'
 import TheStatus from '../../components/TheStatus.vue'
 import TheTwitterShareButton from '../../components/TheTwitterShareButton.vue'
@@ -26,6 +28,7 @@ export default {
     TopImage,
     TheRules,
     TheVotes,
+    StartButton,
     UserForms,
     TheStatus,
     TheTwitterShareButton
