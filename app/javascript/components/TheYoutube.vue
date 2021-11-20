@@ -4,7 +4,7 @@
       :src="`https://www.youtube-nocookie.com/embed/${identifier(youtube_url)}`"
       flameboarder="0"
       allow="encrypted-media; fullscreen"
-      class="d-block m-auto"
+      class="d-block m-auto w-100"
     )
 </template>
 
