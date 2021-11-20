@@ -6,7 +6,7 @@
         .card.h-100
           img(
             class="card-img-top h-50"
-            src="/assets/coins.svg"
+            src="~coins.svg"
           )
           .card-body.h-50
             p.card-title.fw-bold 1、スタート
@@ -15,7 +15,7 @@
         .card.h-100
           img(
             class="card-img-top h-50"
-            src="/assets/select.svg"
+            src="~select.svg"
           )
           .card-body.h-50
             p.card-title.fw-bold 2、BET
@@ -27,7 +27,7 @@
         .card.h-100
           img(
             class="card-img-top h-50"
-            src="/assets/chilling.svg"
+            src="~chilling.svg"
           )
           .card-body.h-50
             p.card-title.fw-bold 3、減点法
@@ -39,7 +39,7 @@
         .card.h-100
           img(
             class="card-img-top h-50"
-            src="/assets/winners.svg"
+            src="~winners.svg"
           )
           .card-body.h-50
             p.card-title.fw-bold 4、結果発表
@@ -51,3 +51,10 @@
               ) @aoki_engineer
               | から得点上位者の発表をします。
 </template>
+
+<script>
+import 'coins.svg'
+import 'select.svg'
+import 'chilling.svg'
+import 'winners.svg'
+</script>
