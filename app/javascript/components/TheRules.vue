@@ -15,7 +15,7 @@
         .card.h-100
           img(
             class="card-img-top h-50"
-            src="/assets/betting.svg"
+            src="/assets/select.svg"
           )
           .card-body.h-50
             p.card-title.fw-bold 2、BET
