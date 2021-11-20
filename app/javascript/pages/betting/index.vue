@@ -37,6 +37,7 @@ export default {
   },
   created() {
     this.fetchCandidates();
+    scrollTo(0, 0)
   },
   computed: {
     ...mapGetters('candidates', ['candidates', 'summary', 'identifier']),
