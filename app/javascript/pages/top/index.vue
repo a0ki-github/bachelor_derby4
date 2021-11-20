@@ -2,7 +2,9 @@
   #top.container
     template(v-if="authUser")
       TheStatus
+      BettingButton
       TheVotes
+      BettingButton
       TheRules
     template(v-else)
       TopImage
@@ -21,6 +23,7 @@ import TheVotes from '../../components/TheVotes.vue'
 import StartButton from '../../components/StartButton.vue'
 import UserForms from '../../components/UserForms.vue'
 import TheStatus from '../../components/TheStatus.vue'
+import BettingButton from '../../components/BettingButton.vue'
 import TheTwitterShareButton from '../../components/TheTwitterShareButton.vue'
 import { mapGetters } from 'vuex'
 export default {
@@ -32,6 +35,7 @@ export default {
     StartButton,
     UserForms,
     TheStatus,
+    BettingButton,
     TheTwitterShareButton
   },
   computed: {

@@ -18,11 +18,6 @@
           | {{ authUser.current_candidate.title }}
     template(v-else)
       h4.text-white まだBETはありません。
-    .my-5
-      router-link(
-        :to="{ name: 'BettingIndex' }"
-        class="btn btn-danger btn-lg m-3 router-link-active"
-      ) BET画面へ
 </template>
 
 <script>
