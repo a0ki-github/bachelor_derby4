@@ -6,6 +6,7 @@
       TheRules
     template(v-else)
       TopImage
+      StartButton
       TheRules
       StartButton
       TheVotes
