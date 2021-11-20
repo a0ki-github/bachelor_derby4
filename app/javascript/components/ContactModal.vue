@@ -6,10 +6,6 @@
           .modal-content
             .modal-header
               h4.modal-title お問い合わせ
-              button(
-                class="btn btn-danger"
-                @click="handleCloseModal"
-              ) x
             .modal-body
               p お問い合わせはTwitterの
                 a(
