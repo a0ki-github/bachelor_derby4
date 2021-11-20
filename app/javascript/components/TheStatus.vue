@@ -17,10 +17,8 @@
           br
           | {{ authUser.current_candidate.title }}
     template(v-else)
-      p.text-white まだBETはありません。
+      h4.text-white まだBETはありません。
     .my-5
-      img.w-25(src="/assets/betting.svg")
-      br
       router-link(
         :to="{ name: 'BettingIndex' }"
         class="btn btn-danger btn-lg m-3 router-link-active"
