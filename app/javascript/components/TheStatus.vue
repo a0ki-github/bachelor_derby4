@@ -1,7 +1,7 @@
 <template lang="pug">
   #status.text-center.my-5
     h1.text-center.fw-bold.text-white 成績
-    img.w-50(src="/assets/status.svg")
+    img.w-50(src="~status.svg")
     template(v-if="authUser.current_candidate")
       .row.row-cols-1.row-cols-md-2
         .col.m-auto
@@ -21,6 +21,7 @@
 </template>
 
 <script>
+import 'status.svg'
 import TheYoutube from './TheYoutube.vue'
 import { mapGetters } from 'vuex'
 export default {
