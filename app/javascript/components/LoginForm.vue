@@ -1,5 +1,5 @@
 <template lang="pug">
-  #login-form.container.w-75
+  #login-form.container.w-75.m-auto
     .h3.mb-3.text-center ログイン
     ValidationObserver(v-slot="{ handleSubmit }")
       form
@@ -70,6 +70,8 @@ export default {
     async handleLoginUser() {
       try {
         await this.loginUser(this.user)
+        alert('ログインに成功しました')
+        scrollTo(0, 0)
       } catch(error) {
         alert('ニックネームかパスワードが間違っています')
         console.log(error)

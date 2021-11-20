@@ -6,21 +6,19 @@
           .modal-content
             .modal-header
               h4.modal-title {{ candidate.name }}
-              button(
-                type="button"
-                class="btn btn-danger"
-                @click="handleCloseModal"
-              ) x
             .modal-body
               p(
                 v-if="minusPointsTarget"
                 class="text-danger"
               ) -10Pとなります。よろしいですか？
-              TheYoutube(:youtube_url="candidate.youtube_url")
+              TheYoutube(
+                :youtube_url="candidate.youtube_url"
+                width-class="w-100"
+              )
             .modal-footer
               button(
                 type="button"
-                class="btn btn-success"
+                class="btn btn-danger"
                 @click="handleCreateBetting(candidate.id)"
               ) BET
               button(

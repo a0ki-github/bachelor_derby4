@@ -1,5 +1,5 @@
 <template lang="pug">
-  #privacy-policy.container
+  #privacy-policy.container.text-white.small
     h1 プライバシーポリシー
     p 本ウェブサイトの管理者（以下，「管理者」といいます。）は，本ウェブサイト上で提供するサービス（以下,「本サービス」といいます。）における，ユーザーの個人情報の取扱いについて，以下のとおりプライバシーポリシー（以下，「本ポリシー」といいます。）を定めます。
 

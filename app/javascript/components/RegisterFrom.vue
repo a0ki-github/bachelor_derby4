@@ -1,5 +1,5 @@
 <template lang="pug">
-  #register-form.container.w-75
+  #register-form.container.w-75.m-auto
     .h3.mb-3.text-center ユーザー登録
     ValidationObserver(v-slot="{ handleSubmit }")
       form
@@ -23,11 +23,7 @@
               )
             span.text-danger {{ errors[0] }}
             p.small.text-info
-              | Twitterユーザー名を登録すると
-              br
-              | 開発者の上位者発表ツイートで
-              br
-              | メンションされます。
+              | Twitterユーザー名を登録すると、上位者発表ツイートでメンションされます。
         .form-group.my-2
           ValidationProvider(
             v-slot="{ errors }"
@@ -104,6 +100,7 @@ export default {
         await this.$axios.post('users', { user: this.user })
         await this.loginUser({ name: this.user.name, password: this.user.password })
         this.$router.push({ name: 'BettingIndex' })
+        alert('ユーザー登録おめでとうございます！さっそくBETしていきましょう！')
       } catch (error) {
         console.log(error)
       }

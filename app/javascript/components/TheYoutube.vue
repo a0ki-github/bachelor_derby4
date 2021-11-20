@@ -1,10 +1,11 @@
 <template lang="pug">
-  iframe(
-    :src="`https://www.youtube-nocookie.com/embed/${identifier(youtube_url)}`"
-    width="100%"
-    flameboarder="0"
-    allow="encrypted-media; fullscreen"
-  )
+  #youtube
+    iframe(
+      :src="`https://www.youtube-nocookie.com/embed/${identifier(youtube_url)}`"
+      :class="widthClass"
+      flameboarder="0"
+      allow="encrypted-media; fullscreen"
+    )
 </template>
 
 <script>
@@ -14,6 +15,9 @@ export default {
     youtube_url: {
       type: String,
       required: true
+    },
+    widthClass: {
+      type: String
     }
   },
   computed: {
