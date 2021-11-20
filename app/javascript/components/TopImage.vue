@@ -9,4 +9,5 @@
 
 <script>
 import 'logo.png'
+export default {}
 </script>

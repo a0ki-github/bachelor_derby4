@@ -57,4 +57,5 @@ import 'coins.svg'
 import 'select.svg'
 import 'chilling.svg'
 import 'winners.svg'
+export default {}
 </script>
