@@ -17,7 +17,7 @@
           br
           | {{ authUser.current_candidate.title }}
     template(v-else)
-      p まだBETはありません。
+      p.text-white まだBETはありません。
     .my-5
       img.w-25(src="/assets/betting.svg")
       br
