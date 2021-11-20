@@ -6,7 +6,7 @@
         .card.h-100.m-auto.text-center
           img(
             class="card-img-top w-50 m-auto"
-            src="/assets/votes.svg"
+            src="~votes.svg"
           )
           .card-body.h-75
             template(v-for="candidate in candidates")
@@ -14,6 +14,7 @@
 </template>
 
 <script>
+import 'votes.svg'
 import { mapActions, mapGetters } from 'vuex'
 export default {
   created() {

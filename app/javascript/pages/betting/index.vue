@@ -1,6 +1,6 @@
 <template lang="pug">
   #betting-form.container.w-75.text-center
-    img.w-100(src="/assets/betting.svg")
+    img.w-100(src="~betting.svg")
     .fw-bold.text-white(style="font-size: 72px")
       | BET
     p.text-white.pb-5 新たにBETする候補者を選択してください
@@ -20,6 +20,7 @@
 </template>
 
 <script>
+import 'betting.svg'
 import TheYoutube from '../../components/TheYoutube.vue'
 import BettingCreateModal from './components/BettingCreateModal.vue'
 import { mapActions, mapGetters } from 'vuex'
