@@ -2,9 +2,9 @@
   #youtube
     iframe(
       :src="`https://www.youtube-nocookie.com/embed/${identifier(youtube_url)}`"
+      :class="widthClass"
       flameboarder="0"
       allow="encrypted-media; fullscreen"
-      class="d-block m-auto w-100"
     )
 </template>
 
@@ -15,6 +15,9 @@ export default {
     youtube_url: {
       type: String,
       required: true
+    },
+    widthClass: {
+      type: String
     }
   },
   computed: {

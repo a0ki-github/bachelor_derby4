@@ -11,7 +11,10 @@
                 v-if="minusPointsTarget"
                 class="text-danger"
               ) -10Pとなります。よろしいですか？
-              TheYoutube(:youtube_url="candidate.youtube_url")
+              TheYoutube(
+                :youtube_url="candidate.youtube_url"
+                width-class="w-100"
+              )
             .modal-footer
               button(
                 type="button"
