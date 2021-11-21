@@ -50,6 +50,10 @@
                 target="_blank"
               ) @aoki_engineer
               | から得点上位者の発表をします。
+    .row.row-cols-1.row-cols-md-2.row-cols-lg-3.mt-5
+      .col.m-auto
+        blockquote.twitter-tweet
+          a(href="https://twitter.com/BachelorJapan/status/1443893459471962134")
 </template>
 
 <script>
@@ -57,5 +61,11 @@ import 'coins.svg'
 import 'select.svg'
 import 'chilling.svg'
 import 'winners.svg'
-export default {}
+export default {
+  mounted () {
+    const script = document.createElement('script');
+    script.src = "https://platform.twitter.com/widgets.js";
+    document.body.appendChild(script);
+  }
+}
 </script>
