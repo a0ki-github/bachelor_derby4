@@ -100,6 +100,9 @@
 
 <script>
 export default {
-  name: 'TermsIndex'
+  name: 'TermsIndex',
+  created() {
+    scrollTo(0, 0)
+  }
 }
 </script>

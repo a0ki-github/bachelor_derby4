@@ -79,6 +79,9 @@
 
 <script>
 export default {
-  name: 'PrivacyPolicyIndex'
+  name: 'PrivacyPolicyIndex',
+  created() {
+    scrollTo(0, 0)
+  }
 }
 </script>

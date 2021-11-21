@@ -46,9 +46,6 @@ export default {
 </script>
 
 <style scoped>
-  #betting-form {
-    max-width: 450px;
-  }
   .fade-enter-active, .fade-leave-active {
     transition: opacity .5s;
   }
