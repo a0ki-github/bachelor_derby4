@@ -10,7 +10,10 @@
     .row.row-cols-1.row-cols-md-2.row-cols-lg-3
       template(v-for="candidate in except_current_candidates")
         .text-white.py-5(@click="handleShowBettingCreateModal(candidate)")
-          h2.card-title.fw-bold {{ summary(candidate) }}
+          h2.card-title.fw-bold
+            | {{ candidate.name }}({{ candidate.age }})
+            br
+            | {{ candidate.title }}
           img(
             :src="`//i.ytimg.com/vi/${identifier(candidate.youtube_url)}/mqdefault.jpg`"
             width="100%"
@@ -45,7 +48,7 @@ export default {
     scrollTo(0, 0)
   },
   computed: {
-    ...mapGetters('candidates', ['candidates', 'summary', 'identifier']),
+    ...mapGetters('candidates', ['candidates', 'identifier']),
     ...mapGetters('users', ['authUser']),
     except_current_candidates() {
       if (this.authUser.current_candidate) {
