@@ -33,7 +33,7 @@ table
       td
         = candidate.youtube_url
       td
-        = candidate.episodes.pluck(:id)
+        = candidate.episodes.pluck(:id).count
       td
         = link_to 'Show', [:admin, candidate]
       td
