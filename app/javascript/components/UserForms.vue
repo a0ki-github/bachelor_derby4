@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import RegisterForm from './RegisterFrom.vue'
+import RegisterForm from './RegisterForm.vue'
 import LoginForm from './LoginForm.vue'
 export default {
   components: {
