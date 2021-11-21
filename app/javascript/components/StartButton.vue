@@ -12,7 +12,7 @@ export default {
   methods: {
     handleScrollToUserForm() {
       const userFormsPosition = document.getElementById('user-forms').offsetTop - 50
-      scrollTo(0, userFormsPosition)
+      scrollTo({top: userFormsPosition, behavior: 'smooth'})
     }
   }
 }
