@@ -69,7 +69,7 @@ export default {
       this.$emit('close-modal')
     },
     async handleCreateBetting(candidate_id) {
-      this.createBetting(candidate_id)
+      await this.createBetting(candidate_id)
       await this.$router.push({ name: 'TopIndex' })
       window.location.reload()
     }
