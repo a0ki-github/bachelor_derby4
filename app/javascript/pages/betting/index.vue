@@ -1,16 +1,20 @@
 <template lang="pug">
-  #betting-form.container.w-75.text-center
-    img.w-100(src="~betting.svg")
-    .fw-bold.text-white(style="font-size: 72px")
-      | BET
-    p.text-white.pb-5 新たにBETする候補者を選択してください
-    template(v-for="candidate in except_current_candidates")
-      .text-white.py-5(@click="handleShowBettingCreateModal(candidate)")
-        h2.card-title.fw-bold {{ summary(candidate) }}
-        img(
-          :src="`//i.ytimg.com/vi/${identifier(candidate.youtube_url)}/mqdefault.jpg`"
-          width="100%"
-        )
+  #betting-form.container.text-center
+    .row.row-cols-1.row-cols-md-2
+      .col.m-auto
+        img.w-100(src="~betting.svg")
+        .fw-bold.text-white(style="font-size: 72px")
+          | BET
+        p.text-white 新たにBETする候補者を選択してください
+        h1.text-white.py-5 ▼
+    .row.row-cols-1.row-cols-md-2.row-cols-lg-3
+      template(v-for="candidate in except_current_candidates")
+        .text-white.py-5(@click="handleShowBettingCreateModal(candidate)")
+          h2.card-title.fw-bold {{ summary(candidate) }}
+          img(
+            :src="`//i.ytimg.com/vi/${identifier(candidate.youtube_url)}/mqdefault.jpg`"
+            width="100%"
+          )
     transition(name="fade")
       BettingCreateModal(
         v-if="isVisibleBettingCreateModal"
