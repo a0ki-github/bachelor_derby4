@@ -10,7 +10,10 @@
           )
           .card-body.h-50
             p.card-title.fw-bold 1、スタート
-            p.card-text 持ち点として100P付与されます。
+            p.card-text
+              | 持ち点として100P付与されます。
+              br
+              .fw-bold ※初回放送開始後は時期に応じて減点があります。
       .col
         .card.h-100
           img(
