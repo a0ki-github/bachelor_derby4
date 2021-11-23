@@ -5,26 +5,26 @@
         .modal-dialog
           .modal-content
             .modal-header
-              h4.modal-title お問い合わせ
+              h4.modal-title Twitterシェア
             .modal-body
-              p お問い合わせはTwitterの
-                a(
-                  href="https://twitter.com/aoki_engineer"
-                  target="_blank"
-                ) @aoki_engineer
-                | までDMをお願いいたします。
+              p.fw-bold あなたのBETをTwitterでシェアすると開発者からめちゃくちゃ感謝されます。
+              TheTwitterShareButton(size-class="fa-2x")
+              img.w-100(src="~pray.svg")
             .modal-footer
               button(
                 type="button"
                 class="btn btn-secondary"
                 @click="handleCloseModal"
-              ) 閉じる
-      .modal-backdrop.show  
+              ) シェアしない
+      .modal-backdrop.show
 </template>
 
 <script>
+import 'pray.svg'
+import TheTwitterShareButton from './TheTwitterShareButton.vue'
 export default {
-  name: 'ContactModal',
+  name: '',
+  components: { TheTwitterShareButton },
   methods: {
     handleCloseModal() {
       this.$emit('close-modal')

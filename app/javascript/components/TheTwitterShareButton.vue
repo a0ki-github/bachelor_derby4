@@ -1,16 +1,23 @@
 <template lang="pug">
-  .text-center.my-4
-    a(
-      target="_blank"
-      rel="nofollow"
-      :href="url"
-    )
-      i.fab.fa-twitter.fa-2x.text-danger
+  #twitter-share-button
+    .text-center.my-4
+      a(
+        target="_blank"
+        rel="nofollow"
+        :href="url"
+        :class="sizeClass"
+      )
+        i.fab.fa-twitter.fa-2x.text-danger
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
 export default {
+  props: {
+    sizeClass: {
+      type: String
+    }
+  },
   data() {
     return {
       url: '',

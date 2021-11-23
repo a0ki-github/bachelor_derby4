@@ -6,6 +6,7 @@
       TheVotes
       BettingButton
       TheRules
+      TwitterShareProposal
     template(v-else)
       TopImage
       StartButton
@@ -25,6 +26,7 @@ import UserForms from '../../components/UserForms.vue'
 import TheStatus from '../../components/TheStatus.vue'
 import BettingButton from '../../components/BettingButton.vue'
 import TheTwitterShareButton from '../../components/TheTwitterShareButton.vue'
+import TwitterShareProposal from '../../components/TwitterShareProposal.vue'
 import { mapGetters } from 'vuex'
 export default {
   name: 'TopIndex',
@@ -36,6 +38,7 @@ export default {
     UserForms,
     TheStatus,
     BettingButton,
+    TwitterShareProposal,
     TheTwitterShareButton
   },
   computed: {
