@@ -24,7 +24,7 @@
 
 <script>
 export default {
-  name: 'TheContactModal',
+  name: 'ContactModal',
   methods: {
     handleCloseModal() {
       this.$emit('close-modal')
