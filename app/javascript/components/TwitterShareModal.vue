@@ -8,7 +8,7 @@
               h4.modal-title Twitterシェア
             .modal-body
               p.fw-bold あなたのBETをTwitterでシェアすると開発者からめちゃくちゃ感謝されます。
-              TheTwitterShareButton(size-class="fa-2x")
+              TwitterShareButton(size-class="fa-2x")
               p.text-center シェアする
               img.w-100(src="~pray.svg")
             .modal-footer
@@ -22,10 +22,10 @@
 
 <script>
 import 'pray.svg'
-import TheTwitterShareButton from './TheTwitterShareButton.vue'
+import TwitterShareButton from './TwitterShareButton.vue'
 export default {
   name: '',
-  components: { TheTwitterShareButton },
+  components: { TwitterShareButton },
   methods: {
     handleCloseModal() {
       this.$emit('close-modal')

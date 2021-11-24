@@ -14,7 +14,7 @@
       StartButton
       TheVotes
       UserForms
-    TheTwitterShareButton
+    TwitterShareButton
 </template>
 
 <script>
@@ -25,7 +25,7 @@ import StartButton from '../../components/StartButton.vue'
 import UserForms from '../../components/UserForms.vue'
 import TheStatus from '../../components/TheStatus.vue'
 import BettingButton from '../../components/BettingButton.vue'
-import TheTwitterShareButton from '../../components/TheTwitterShareButton.vue'
+import TwitterShareButton from '../../components/TwitterShareButton.vue'
 import TwitterShareProposal from '../../components/TwitterShareProposal.vue'
 import { mapGetters } from 'vuex'
 export default {
@@ -39,7 +39,7 @@ export default {
     TheStatus,
     BettingButton,
     TwitterShareProposal,
-    TheTwitterShareButton
+    TwitterShareButton
   },
   computed: {
     ...mapGetters('users', ['authUser'])
