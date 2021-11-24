@@ -9,6 +9,7 @@
             .modal-body
               p.fw-bold あなたのBETをTwitterでシェアすると開発者からめちゃくちゃ感謝されます。
               TheTwitterShareButton(size-class="fa-2x")
+              p.text-center シェアする
               img.w-100(src="~pray.svg")
             .modal-footer
               button(

@@ -1,6 +1,6 @@
 <template lang="pug">
   #twitter-share-button
-    .text-center.my-4
+    .text-center
       a(
         target="_blank"
         rel="nofollow"
