@@ -60,7 +60,7 @@ export default {
   computed: {
     ...mapGetters('users', ['authUser']),
     minusPointsTarget() {
-      return new Date > new Date(2021, 10, 25, 22) && this.authUser.bettings_count >1
+      return new Date > new Date(2021, 10, 25, 22) && this.authUser.bettings_count > 0
     }
   },
   methods: {
