@@ -8,6 +8,7 @@ table
       th CurrentCandidate
       th BettingsCount
       th Points
+      th LastBettingAt
       th
       th
       / th
@@ -20,6 +21,7 @@ table
         td = user.current_candidate&.name
         td = user.bettings.count
         td = user.points
+        td = user.bettings.order(created_at: :desc).first&.created_at
         td = link_to 'Show', [:admin, user]
         td = link_to 'Edit', edit_admin_user_path(user)
         / td = link_to 'Destroy', [:admin, user], data: { confirm: 'Are you sure?' }, method: :delete

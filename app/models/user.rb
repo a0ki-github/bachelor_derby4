@@ -13,7 +13,7 @@ class User < ApplicationRecord
   enum role: { general: 0, admin: 1 }
 
   def current_candidate
-    bettings.last.candidate if bettings.any?
+    bettings.order(created_at: :desc).first&.candidate
   end
 
   def points
