@@ -3,5 +3,7 @@ class Episode < ApplicationRecord
 
   validates :onair_at, presence: true
 
-  scope :nth, ->(n) { order(onair_at: :asc)[n-1] }
+  def self.nth(n)
+    order(onair_at: :asc)[n-1]
+  end
 end
