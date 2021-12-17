@@ -28,7 +28,7 @@ class User < ApplicationRecord
 
     # 各放送回終了時、脱落した候補者にBETしているor誰にもBETしていないユーザーに対し減点
     [*1..Episode.count - 1].each do |n|
-      points -= 20 if after(Episode.nth(n)) && wrong_betting_at_episode(n)
+      points -= 20 if after?(Episode.nth(n)) && wrong_betting_at_episode?(n)
     end
 
     return points
@@ -40,11 +40,11 @@ class User < ApplicationRecord
 
   private
 
-  def after(episode)
+  def after?(episode)
     Time.current > episode.onair_at
   end
 
-  def wrong_betting_at_episode(episode_number)
+  def wrong_betting_at_episode?(episode_number)
     return true if bettings.before_onair(episode_number).none?
     candidate_at_episode(episode_number).episodes.count < episode_number + 1
   end
